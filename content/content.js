@@ -6,7 +6,7 @@ var getSelectedText = function () {
 document.addEventListener('mouseup', function () {
   var text = getSelectedText();
   if (text && text.length > 1) {
-    alert(text);
+      console.log(text);
     chrome.runtime.sendMessage({text: text});
   }
 });
@@ -14,6 +14,6 @@ document.addEventListener('mouseup', function () {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.translation) {
-      alert('translation received by content script, showing tooltip now');
+        console.log('translation received by content script, showing tooltip now');
     }
   });

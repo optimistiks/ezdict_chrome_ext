@@ -5,8 +5,15 @@ var sendMessageToActiveTab = function (payload) {
 };
 
 bgApp = {};
+
 bgApp.isLoggedIn = function () {
     return false;
+};
+
+bgApp.register = function () {
+    var deferred = $.Deferred();
+    deferred.resolve();
+    return deferred.promise();
 };
 
 chrome.runtime.onMessage.addListener(

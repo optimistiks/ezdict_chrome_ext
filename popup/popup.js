@@ -1,5 +1,3 @@
-var bg = chrome.extension.getBackgroundPage();
-
 popupApp = {};
 popupApp.showLoginView = function () {
     $.get('login.html').done(function (data) {
@@ -14,10 +12,12 @@ popupApp.showMainView = function () {
     });
 };
 
-window.onload = function () {
-    if (bg.bgApp.isLoggedIn()) {
-        popupApp.showMainView();
-    } else {
-        popupApp.showLoginView();
-    }
-};
+chrome.runtime.getBackgroundPage(function (bg) {
+    $(document).ready(function () {
+        if (bg.bgApp.isLoggedIn()) {
+            popupApp.showMainView();
+        } else {
+            popupApp.showLoginView();
+        }
+    })
+});

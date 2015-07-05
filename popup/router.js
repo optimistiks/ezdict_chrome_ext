@@ -1,15 +1,9 @@
 popupApp = {};
 popupApp.showLoginView = function () {
-    $.get('login.html').done(function (data) {
-        $('#content').html(data);
-    });
+    window.location.href = 'login.html';
 };
 popupApp.showMainView = function () {
-    $.get('main.html').done(function (data) {
-        var content = $('#content');
-        content.html(data);
-        content.find('#username').text('some username')
-    });
+    window.location.href = 'main.html';
 };
 
 chrome.runtime.getBackgroundPage(function (bg) {

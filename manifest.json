@@ -1,5 +1,5 @@
 {
-  "name": "EzdictExtension",
+  "name": "EzDict",
   "version": "0.0.1",
   "manifest_version": 2,
   "description" : "EzDict extension",
@@ -7,7 +7,7 @@
   "browser_action": {
     "default_icon": { "19": "icons/16x16.png", "38": "icons/16x16.png" },
     "default_title": "EzDict",
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup/router.html"
   },
   "background": {
     "scripts": [

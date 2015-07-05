@@ -7,19 +7,28 @@ var sendMessageToActiveTab = function (payload) {
 bgApp = {};
 
 bgApp.isLoggedIn = function () {
+    console.log('bgApp.isLoggedIn', 'check token in storage');
     return false;
 };
 
 bgApp.register = function () {
     var deferred = $.Deferred();
     deferred.resolve();
+    console.log('bgApp.register', 'request to /register, autologin happens, save token to storage');
+    return deferred.promise();
+};
+
+bgApp.login = function () {
+    var deferred = $.Deferred();
+    deferred.resolve();
+    console.log('bgApp.login', 'request to /login, save token to storage');
     return deferred.promise();
 };
 
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.text) {
-            console.log('sending ajax request to /translate');
+            console.log('request to /translate');
             sendMessageToActiveTab({translation: 'translation'});
         }
     });

@@ -3,7 +3,7 @@ var init = function (bg) {
         e.preventDefault();
         var form = $(this).serializeArray();
         bg.bgApp.register(form).done(function () {
-            console.log('register and login done');
+            console.log('registered, autologin, redir to popup');
             // todo: автологин после регистрации на стороне сервера
             // при успешном login редирект на попап
         });

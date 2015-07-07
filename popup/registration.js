@@ -2,10 +2,11 @@ var init = function (bg) {
     $('#registration_form').on('submit', function (e) {
         e.preventDefault();
         var form = $(this).serializeArray();
-        bg.bgApp.register(form).done(function () {
+        bg.bgApp.register(form).done(function (response) {
             console.log('registered, autologin, redir to popup');
-            // todo: автологин после регистрации на стороне сервера
-            // при успешном login редирект на попап
+            console.log('got response', response);
+            // todo: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+            // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ login пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
         });
     });
 

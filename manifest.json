@@ -4,6 +4,9 @@
   "manifest_version": 2,
   "description" : "EzDict extension",
   "icons": { "16": "icons/16x16.png", "48": "icons/16x16.png", "128": "icons/16x16.png" },
+  "permissions": [
+    "http://api.ezdict.potapovmax.com/"
+  ],
   "browser_action": {
     "default_icon": { "19": "icons/16x16.png", "38": "icons/16x16.png" },
     "default_title": "EzDict",
@@ -12,6 +15,7 @@
   "background": {
     "scripts": [
       "vendor/jquery-2.1.4.min.js",
+      "background/api.js",
       "background/background.js"
     ],
     "persistent": false

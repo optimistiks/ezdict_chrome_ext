@@ -11,11 +11,9 @@ bgApp.isLoggedIn = function () {
     return false;
 };
 
-bgApp.register = function () {
-    var deferred = $.Deferred();
-    deferred.resolve();
+bgApp.register = function (formData) {
     console.log('bgApp.register', 'request to /register, autologin happens, save token to storage');
-    return deferred.promise();
+    return api.register(formData);
 };
 
 bgApp.login = function () {

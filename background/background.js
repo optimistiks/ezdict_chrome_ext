@@ -18,8 +18,11 @@ bgApp.checkLogin = function () {
 };
 
 bgApp.register = function (formData) {
-  console.log('bgApp.register', 'request to /register, autologin happens, save token to storage');
   return api.register(formData);
+};
+
+bgApp.logout = function () {
+  return api.logout();
 };
 
 bgApp.login = function () {
@@ -32,7 +35,7 @@ bgApp.login = function () {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.text) {
-      api.translate(request.text).done(function(translation) {
+      api.translate(request.text).done(function (translation) {
         sendMessageToActiveTab({translation: translation});
       });
     }

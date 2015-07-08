@@ -3,7 +3,7 @@ var contentApp = {
 };
 
 contentApp.createTooltip = function () {
-  return $('<div>').css({'position': 'fixed', 'background': 'red'}).html('some loader');
+  return $('<div>').css({'position': 'absolute', 'background': 'red'}).html('some loader');
 };
 
 contentApp.showTooltip = function (selection) {
@@ -14,7 +14,7 @@ contentApp.showTooltip = function (selection) {
   var range = selection.getRangeAt(0); //get the text range
   var rect = range.getBoundingClientRect();
 
-  this.tooltip.css({top: rect.top - rect.height, left: rect.left});
+  this.tooltip.css({top: window.pageYOffset + (rect.top - rect.height), left: rect.left});
   this.tooltip.appendTo(document.body);
 };
 

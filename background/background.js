@@ -32,7 +32,8 @@ bgApp.login = function () {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.text) {
-      console.log('request to /translate');
-      sendMessageToActiveTab({translation: 'translation'});
+      api.translate(request.text).done(function(translation) {
+        sendMessageToActiveTab({translation: translation});
+      });
     }
   });

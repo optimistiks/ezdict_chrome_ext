@@ -16,12 +16,10 @@ contentApp.showTooltip = function (selection) {
 
   this.tooltip.css({top: rect.top - rect.height, left: rect.left});
   this.tooltip.appendTo(document.body);
-
-  console.log('contentApp.showTooltip', 'show tooltip with loader at', rect);
 };
 
-contentApp.setTooltipContent = function () {
-  console.log('contentApp.setTooltipContent', 'set tooltip content');
+contentApp.setTooltipContent = function (translation) {
+  this.tooltip.text(translation);
 };
 
 // mouseuo

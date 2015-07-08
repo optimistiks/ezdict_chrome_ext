@@ -10,6 +10,22 @@ api.sendRequest = function (ajaxParams) {
   return $.ajax(ajaxParams);
 };
 
+api.sendSignedRequest = function (ajaxParams) {
+  var deferred = $.Deferred();
+  this.getToken().done(function (token) {
+    ajaxParams.headers = ajaxParams.headers || {};
+    ajaxParams.headers['Authorization'] = 'Token ' + token;
+    $.ajax(ajaxParams)
+      .done(function (data, textStatus, jqXHR) {
+        deferred.resolve(data, textStatus, jqXHR);
+      })
+      .fail(function (jqXHR, textStatus, errorThrown) {
+        deferred.reject(jqXHR, textStatus, errorThrown);
+      });
+  });
+  return deferred.promise();
+};
+
 api.getToken = function () {
   var deferred = $.Deferred();
   chrome.storage.sync.get('auth_token', function (items) {
@@ -45,5 +61,16 @@ api.login = function () {
 };
 api.logout = function () {
 };
-api.translate = function () {
+api.translate = function (string) {
+  var deferred = $.Deferred();
+
+  this.sendSignedRequest({
+    url: this.buildUrl('/translation'),
+    type: 'GET',
+    data: {string: string}
+  }).done(function (translation) {
+    deferred.resolve(translation);
+  });
+
+  return deferred.promise();
 };

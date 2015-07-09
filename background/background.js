@@ -25,11 +25,8 @@ bgApp.logout = function () {
   return api.logout();
 };
 
-bgApp.login = function () {
-  var deferred = $.Deferred();
-  deferred.resolve();
-  console.log('bgApp.login', 'request to /login, save token to storage');
-  return deferred.promise();
+bgApp.login = function (formData) {
+  return api.login(formData);
 };
 
 chrome.runtime.onMessage.addListener(

@@ -3,7 +3,7 @@ var init = function (bg) {
         e.preventDefault();
         var form = $(this).serializeArray();
         bg.bgApp.login(form).done(function () {
-            console.log('logged in, redir to popup');
+          window.location.href = '/popup/router.html';
         });
     });
 

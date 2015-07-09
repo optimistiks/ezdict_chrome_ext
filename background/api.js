@@ -51,6 +51,19 @@ api.getToken = function () {
 };
 
 /**
+ * @param token
+ * @returns {*}
+ */
+api.saveToken = function (token) {
+  var deferred = $.Deferred();
+  // Save token using the Chrome extension storage API.
+  chrome.storage.sync.set({'auth_token': token}, function () {
+    deferred.resolve(token);
+  });
+  return deferred.promise();
+};
+
+/**
  * call the register api endpoint and save the token if it's present in the response
  * @param formData
  * @returns {*}
@@ -66,8 +79,7 @@ api.register = function (formData) {
       console.warn('Login after registration seems to be off');
       deferred.resolve(response);
     } else {
-      // Save token using the Chrome extension storage API.
-      chrome.storage.sync.set({'auth_token': response.auth_token}, function () {
+      api.saveToken(response.auth_token).done(function () {
         deferred.resolve(response);
       });
     }
@@ -75,7 +87,20 @@ api.register = function (formData) {
   return deferred.promise();
 };
 
-api.login = function () {
+api.login = function (formData) {
+  var deferred = $.Deferred();
+
+  this.sendRequest({
+    url: this.buildUrl('/user/login'),
+    type: 'POST',
+    data: formData
+  }).done(function (response) {
+    api.saveToken(response.auth_token).done(function () {
+      deferred.resolve(response);
+    });
+  });
+
+  return deferred.promise();
 };
 
 /**

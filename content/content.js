@@ -3,23 +3,31 @@ var contentApp = {
 };
 
 contentApp.createTooltip = function () {
-  return $('<div>').css({'position': 'absolute', 'background': 'red'}).html('some loader');
+  return $('<div>').css({'position': 'absolute', 'background': 'red', 'max-width': '500px'});
 };
 
-contentApp.showTooltip = function (selection) {
+contentApp.showTooltip = function () {
   if (!this.tooltip) {
     this.tooltip = this.createTooltip();
+    this.tooltip.appendTo(document.body);
   }
-
-  var range = selection.getRangeAt(0); //get the text range
-  var rect = range.getBoundingClientRect();
-
-  this.tooltip.css({top: window.pageYOffset + (rect.top - rect.height), left: rect.left});
-  this.tooltip.appendTo(document.body);
+  this.tooltip.html('loading...');
+  this.updateTooltipPosition();
 };
 
 contentApp.setTooltipContent = function (translation) {
   this.tooltip.text(translation);
+  this.updateTooltipPosition();
+};
+
+contentApp.updateTooltipPosition = function () {
+  var selection = window.getSelection();
+  var range = selection.getRangeAt(0); //get the text range
+  var rect = range.getBoundingClientRect();
+  this.tooltip.css({
+    top: window.pageYOffset + rect.top - this.tooltip.height(),
+    left: rect.left + rect.width / 2 - this.tooltip.width() / 2
+  });
 };
 
 // mouseuo
@@ -34,7 +42,7 @@ $(document).on('mouseup', function (e) {
   if (text && text.length > 1) {
     console.log(text);
     chrome.runtime.sendMessage({text: text});
-    contentApp.showTooltip(selection);
+    contentApp.showTooltip();
   }
 });
 

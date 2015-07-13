@@ -11,8 +11,16 @@ contentApp.showTooltip = function () {
     this.tooltip = this.createTooltip();
     this.tooltip.appendTo(document.body);
   }
+  this.tooltip.show();
   this.tooltip.html('loading...');
   this.updateTooltipPosition();
+};
+
+contentApp.hideTooltip = function () {
+  if (!this.tooltip) {
+    return false;
+  }
+  this.tooltip.hide();
 };
 
 contentApp.setTooltipContent = function (translation) {
@@ -43,6 +51,8 @@ $(document).on('mouseup', function (e) {
     console.log(text);
     chrome.runtime.sendMessage({text: text});
     contentApp.showTooltip();
+  } else {
+    contentApp.hideTooltip();
   }
 });
 

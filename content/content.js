@@ -3,7 +3,11 @@ var contentApp = {
 };
 
 contentApp.createTooltip = function () {
-  return $('<div>').css({'position': 'absolute', 'background': 'red', 'max-width': '500px'});
+  return $('<div>').css({
+    'position': 'absolute',
+    'background': 'red',
+    'max-width': '500px'
+  });
 };
 
 contentApp.showTooltip = function () {
@@ -54,6 +58,14 @@ $(document).on('mouseup', function (e) {
   } else {
     contentApp.hideTooltip();
   }
+});
+
+$(document).ready(function () {
+  console.log('tooltip.html');
+  $.get(chrome.extension.getURL('content/tooltip/tooltip.html'), function (data) {
+    console.log("Load was performed.", data);
+    $(data).appendTo(document.body);
+  });
 });
 
 chrome.runtime.onMessage.addListener(

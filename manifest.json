@@ -27,7 +27,7 @@
     "js": [
       "bower_components/jquery/jquery.min.js",
       "bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
-      "content/tooltip/js/main.js",
+      "content/tooltip/js/tooltip.js",
       "content/content.js"
     ]
   }],

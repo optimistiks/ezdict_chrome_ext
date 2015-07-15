@@ -81,16 +81,22 @@ tooltip.bindEvents = function () {
   });
 };
 
-tooltip.showTooltip = function () {
+tooltip.ready = function (callback) {
   if (!this.rootElem) {
     this.createTooltip().done(function () {
-      this.showTooltip();
+      callback.apply(this);
     }.bind(this));
   } else {
+    callback.apply(this);
+  }
+};
+
+tooltip.showTooltip = function () {
+  this.ready(function () {
     this.rootElem.show();
     this.setTooltipContent('loading...');
     this.updateTooltipPosition();
-  }
+  }.bind(this));
 };
 
 tooltip.hideTooltip = function () {
@@ -101,7 +107,10 @@ tooltip.hideTooltip = function () {
 };
 
 tooltip.setTooltipContent = function (content) {
-  this.rootElem.find('#ezdict-sticker').text(content);
+  this.ready(function () {
+    this.rootElem.find('#ezdict-sticker').text(content);
+    this.updateTooltipPosition();
+  }.bind(this));
 };
 
 tooltip.updateTooltipPosition = function () {

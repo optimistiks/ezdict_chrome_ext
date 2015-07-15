@@ -19,7 +19,7 @@ api.sendRequest = function (ajaxParams) {
  */
 api.sendSignedRequest = function (ajaxParams) {
   var deferred = $.Deferred();
-  this.getToken().done(function (token) {
+  this.getToken().always(function (token) {
     ajaxParams.headers = ajaxParams.headers || {};
     ajaxParams.headers['Authorization'] = 'Token ' + token;
     $.ajax(ajaxParams)
@@ -127,15 +127,9 @@ api.logout = function () {
  * @returns {*}
  */
 api.translate = function (string) {
-  var deferred = $.Deferred();
-
-  this.sendSignedRequest({
+  return this.sendSignedRequest({
     url: this.buildUrl('/translation'),
     type: 'GET',
     data: {string: string}
-  }).done(function (translation) {
-    deferred.resolve(translation);
   });
-
-  return deferred.promise();
 };

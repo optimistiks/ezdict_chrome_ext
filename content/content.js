@@ -9,7 +9,7 @@ $(document).on('mouseup', function (e) {
     chrome.runtime.sendMessage({text: text});
     tooltip.showTooltip();
   } else {
-    // tooltip.hideTooltip();
+    tooltip.hideTooltip();
   }
 });
 

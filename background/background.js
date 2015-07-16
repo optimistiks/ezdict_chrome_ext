@@ -11,11 +11,17 @@ bgApp = {};
 
 bgApp.checkLogin = function () {
   var deferred = $.Deferred();
-  api.getToken()
-    .done(function (token) {
+  api.getUserInfo()
+    .done(function () {
       deferred.resolve();
-    }).fail(function () {
-      deferred.reject();
+    })
+    .fail(function (jqXHR) {
+      if (jqXHR.status === 401) {
+        deferred.reject();
+      } else {
+        deferred.reject();
+        console.error('Check login error', arguments);
+      }
     });
   return deferred.promise();
 };

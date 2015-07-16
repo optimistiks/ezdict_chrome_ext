@@ -35,7 +35,7 @@ api.sendSignedRequest = function (ajaxParams) {
 };
 
 /**
- * retrieves the token from Chrome sync storage
+ * retrieves the token from the storage
  * @returns {*}
  */
 api.getToken = function () {
@@ -60,6 +60,20 @@ api.saveToken = function (token) {
   chrome.storage.sync.set({'auth_token': token}, function () {
     deferred.resolve(token);
   });
+  return deferred.promise();
+};
+
+/**
+ * remove the token from the storage
+ * @returns {*}
+ */
+api.removeToken = function () {
+  var deferred = $.Deferred();
+
+  chrome.storage.sync.remove('auth_token', function () {
+    deferred.resolve();
+  });
+
   return deferred.promise();
 };
 
@@ -113,10 +127,10 @@ api.logout = function () {
     url: this.buildUrl('/user/logout'),
     type: 'POST'
   }).done(function () {
-    chrome.storage.sync.remove('auth_token', function () {
+    this.removeToken().done(function () {
       deferred.resolve();
-    });
-  });
+    })
+  }.bind(this));
 
   return deferred.promise();
 };
@@ -131,5 +145,12 @@ api.translate = function (string) {
     url: this.buildUrl('/translation'),
     type: 'GET',
     data: {string: string}
+  });
+};
+
+api.getUserInfo = function () {
+  return this.sendSignedRequest({
+    url: this.buildUrl('/user/me'),
+    type: 'GET'
   });
 };

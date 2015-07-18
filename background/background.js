@@ -49,6 +49,9 @@ chrome.runtime.onMessage.addListener(
           if (jqXHR.status === 401) {
             sendMessageToActiveTab({loginRequired: true});
           }
+          if (jqXHR.responseJSON.string) {
+            sendMessageToActiveTab({translationError: jqXHR.responseJSON.string});
+          }
         });
     }
   });

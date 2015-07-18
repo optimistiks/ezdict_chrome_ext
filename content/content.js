@@ -18,6 +18,9 @@ chrome.runtime.onMessage.addListener(
     if (request.translation) {
       tooltip.setTooltipContent(request.translation);
     }
+    if (request.translationError) {
+      tooltip.setTooltipContent(request.translationError.join(','));
+    }
     if (request.loginRequired) {
       tooltip.setTooltipContent('Пожалуйста, войдите в систему или зарегистрируйтесь.');
     }

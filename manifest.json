@@ -3,13 +3,20 @@
   "version": "0.2.0",
   "manifest_version": 2,
   "description" : "EzDict extension",
-  "icons": { "16": "icons/16x16.png", "48": "icons/16x16.png", "128": "icons/16x16.png" },
+  "icons": {
+    "16": "icons/green/16х16-green.png",
+    "48": "icons/green/48х48-green.png",
+    "128": "icons/green/128х128-green.png"
+  },
   "permissions": [
     "http://api.ezdict.potapovmax.com/",
     "storage"
   ],
   "browser_action": {
-    "default_icon": { "19": "icons/16x16.png", "38": "icons/16x16.png" },
+    "default_icon": {
+      "19": "icons/green/19х19-green.png",
+      "38": "icons/green/38х38-green.png"
+    },
     "default_title": "EzDict",
     "default_popup": "popup/router.html"
   },

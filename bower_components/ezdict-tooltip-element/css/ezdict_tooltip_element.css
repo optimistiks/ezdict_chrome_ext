@@ -1,0 +1,332 @@
+@charset "UTF-8";
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+.sticker {
+  display: none;
+  position: absolute;
+  z-index: 1000000;
+  width: 200px;
+  background: #109926;
+  padding-bottom: 25px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.sticker::after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: -27px;
+  right: 50%;
+  margin-right: -13px;
+  border: 14px solid;
+  border-color: #109926 transparent transparent transparent;
+}
+
+.sticker i {
+  color: white;
+}
+
+.slide-down-btn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 0;
+}
+
+.slide-down-btn:hover {
+  -moz-box-shadow: 0 0 10px white, 0 0 10px inset;
+  -webkit-box-shadow: 0 0 10px white, 0 0 10px inset;
+  box-shadow: 0 0 10px white, 0 0 10px inset;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+}
+
+.slide-down-btn > i {
+  font-size: 16px;
+}
+
+.slide-down-btn.slide-up {
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.control-panel {
+  position: absolute;
+}
+
+.control-panel.left {
+  left: -33px;
+}
+
+.control-panel.right {
+  right: -33px;
+}
+
+.st-btn-wrap {
+  cursor: pointer;
+}
+
+.st-btn {
+  font-size: 18px;
+  width: 26px;
+  height: 22px;
+  background: #109926;
+  margin-bottom: 3px;
+  font-family: 'times';
+  text-align: center;
+  color: #fff;
+  line-height: 22px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.st-btn:hover {
+  background-color: #88cc93;
+}
+
+.st-btn:active {
+  background-color: #003600;
+}
+
+.counter {
+  overflow: hidden;
+  position: absolute;
+  width: 26px;
+  height: 22px;
+  line-height: 24px;
+  text-align: center;
+  background: #fff;
+  top: -25px;
+}
+
+.counter > p {
+  font: 800 14px/22px helvetica, sans-serif;
+  color: #20a034;
+}
+
+.counter.warning1 {
+  background: #efd7d7;
+}
+
+.counter.warning2 {
+  background: #e5d8a5;
+}
+
+.counter.warning3 {
+  background: #dcab71;
+}
+
+.counter.warning4 {
+  background: #dc8071;
+}
+
+.counter.warning5 {
+  background: #ca3030;
+}
+
+.counter.warning5 p {
+  color: white;
+}
+
+.st-btn.add-new {
+  display: none;
+}
+
+.st-btn.like-it {
+  font-size: 17px;
+  display: none;
+}
+
+.st-btn.close {
+  font-size: 14px;
+}
+
+.vrashi:hover .st-btn {
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    background: #0e761f;
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  100% {
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
+  0% {
+    -moz-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  50% {
+    background: #0e761f;
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  100% {
+    -moz-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg);
+  }
+}
+
+.sticker-source-wrap {
+  display: table;
+  /*╤Д╨╕╨║╤Б ╨┤╨╗╤П Safari*/
+  padding: 3px 0 0 3px;
+  font-size: 0;
+}
+
+.sticker-source-wrap > div {
+  display: inline-block;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
+  margin-right: 2px;
+}
+
+.st-source-btn {
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  line-height: 16px;
+  vertical-align: middle;
+  text-shadow: 0 0 0.5px white;
+}
+
+.st-source-btn:hover {
+  background: #88cc93;
+}
+
+.st-source-btn:active {
+  background: #003600;
+}
+
+.st-source-btn.ezdict {
+  font-size: 13px;
+}
+
+.st-source-btn.best {
+  line-height: 14px;
+  font-size: 14px;
+}
+
+.st-source-btn.active {
+  background: #003600;
+}
+
+.st-translate {
+  font: 14px/25px helvetica, sans-serif;
+  overflow: hidden;
+  color: white;
+  font-size: 14px;
+  margin: 8px 5px 0 5px;
+  padding: 0 5px 5px 0;
+  max-height: 30px;
+  line-height: 15px;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.st-translate.large {
+  max-height: 160px;
+}
+
+#user-sticker, #best-sticker {
+  display: none;
+}

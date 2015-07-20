@@ -42,6 +42,15 @@
     "content/tooltip/font/webhostinghub-glyphs.ttf",
     "content/tooltip/font/webhostinghub-glyphs.svg",
     "content/tooltip/font/webhostinghub-glyphs.eot",
-    "content/tooltip/tooltip.html"
+    "content/tooltip/tooltip.html",
+
+    "bower_components/polymer/polymer-micro.html",
+    "bower_components/polymer/polymer-mini.html",
+    "bower_components/polymer/polymer.html",
+
+    "bower_components/ezdict-tooltip-element/css/ezdict_tooltip_element.css",
+    "bower_components/ezdict-tooltip-element/css/icons.css",
+    "bower_components/ezdict-tooltip-element/js/ezdict_tooltip_element.js",
+    "bower_components/ezdict-tooltip-element/ezdict_tooltip_element.html"
   ]
 }

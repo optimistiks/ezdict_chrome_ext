@@ -17,13 +17,13 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "a445a12eb0",
+  "_release": "bf2c138776",
   "_resolution": {
     "type": "branch",
-    "branch": "release/0.1.3",
-    "commit": "a445a12eb0c6c4f9963639382eb9bfbe324b5cef"
+    "branch": "master",
+    "commit": "bf2c1387764212a32b834660b5a37acd4fdfc8bd"
   },
   "_source": "git://github.com/optimistiks/ezdict_tooltip_element.git",
-  "_target": "release/0.1.3",
+  "_target": "master",
   "_originalSource": "optimistiks/ezdict_tooltip_element"
 }

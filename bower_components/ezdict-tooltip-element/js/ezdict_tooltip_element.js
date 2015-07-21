@@ -6,8 +6,7 @@ Polymer({
   },
 
   ready: function () {
-    console.log('ready', this.hide);
-    this.fire(this._buildEventName('ready'), {message: 'test'});
+    this.fire(this._buildEventName('ready'));
   },
 
   attached: function () {

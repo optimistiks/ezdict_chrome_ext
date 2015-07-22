@@ -2,6 +2,8 @@ var tooltip = {
   rootElem: null
 };
 
+console.log('xtag', xtag);
+
 tooltip.createTooltip = function () {
   var deferred = new $.Deferred();
 

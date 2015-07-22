@@ -30,13 +30,14 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "css": ["content/tooltip/css/app.css", "content/tooltip/css/whhg.css"],
+    "css": ["content/tooltip/css/whhg.css"],
     "js": [
       "bower_components/jquery/jquery.min.js",
       "bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
       "content/tooltip/js/webcomponents-config.js",
       "bower_components/webcomponentsjs/webcomponents.min.js",
       "bower_components/x-tag-core/dist/x-tag-core.min.js",
+      "bower_components/ezdict-tooltip-element/js/element.js",
       "content/tooltip/js/tooltip.js",
       "content/content.js"
     ]
@@ -47,13 +48,6 @@
     "content/tooltip/font/webhostinghub-glyphs.eot",
     "content/tooltip/tooltip.html",
 
-    "bower_components/polymer/polymer-micro.html",
-    "bower_components/polymer/polymer-mini.html",
-    "bower_components/polymer/polymer.html",
-
-    "bower_components/ezdict-tooltip-element/css/ezdict_tooltip_element.css",
-    "bower_components/ezdict-tooltip-element/css/icons.css",
-    "bower_components/ezdict-tooltip-element/js/ezdict_tooltip_element.js",
-    "bower_components/ezdict-tooltip-element/ezdict_tooltip_element.html"
+    "bower_components/ezdict-tooltip-element/html/content.html"
   ]
 }

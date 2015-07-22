@@ -18,11 +18,11 @@
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0",
     "web-component-tester": "*"
   },
-  "_release": "fc35557d02",
+  "_release": "963c3fbd3f",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "fc35557d02f32bc04207498ff1f18288b9e83f05"
+    "commit": "963c3fbd3ff5fdaca235b4afe3525e921d1cab68"
   },
   "_source": "git://github.com/optimistiks/ezdict_tooltip_element.git",
   "_target": "master",

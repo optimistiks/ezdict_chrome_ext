@@ -2,7 +2,20 @@ var tooltip = {
   rootElem: null
 };
 
-console.log('xtag', xtag);
+$.get(chrome.extension.getURL('bower_components/ezdict-tooltip-element/html/content.html'), function (content) {
+  ezdictTooltipElement.register(content);
+
+  xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function() {
+    var tooltip = document.querySelector('ezdict-tooltip-element');
+    tooltip.setJquery($);
+    tooltip.init();
+    tooltip.setTop('50%');
+    tooltip.setLeft('50%');
+    tooltip.setTranslation('Hello world');
+    // tooltip.show();
+  });
+  document.body.appendChild(document.createElement('ezdict-tooltip-element'));
+});
 
 tooltip.createTooltip = function () {
   var deferred = new $.Deferred();

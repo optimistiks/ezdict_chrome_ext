@@ -65,30 +65,44 @@ ezdictTooltipElement.register = function (content) {
         this.$shadowRoot.find('#close_sticker').on('click', function () {
           element.$shadowRoot.find('#sticker').hide();
         }.bind(this));
+
+        return this;
       },
 
       setJquery: function (jQuery) {
         this.jq = jQuery;
         this.$shadowRoot = jQuery(this.shadowRoot);
+        return this;
       },
 
       setTranslation: function (translation) {
         this.$shadowRoot.find('#ezdict-sticker').text(translation);
+        return this;
       },
 
       setTop: function (top) {
         this.$shadowRoot.find('#sticker').css({'top': top});
+        return this;
       },
 
       setLeft: function (left) {
         this.$shadowRoot.find('#sticker').css({'left': left});
+        return this;
       },
 
       hide: function () {
         this.$shadowRoot.find('#sticker').hide();
+        return this;
       },
       show: function () {
         this.$shadowRoot.find('#sticker').show();
+        return this;
+      },
+      getHeight: function () {
+        return this.$shadowRoot.find('#sticker').height();
+      },
+      getWidth: function () {
+        return this.$shadowRoot.find('#sticker').width();
       }
     }
   });

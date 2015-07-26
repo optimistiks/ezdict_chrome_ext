@@ -16,12 +16,12 @@ $(document).on('mouseup', function (e) {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.translation) {
-      tooltip.setTooltipContent(request.translation);
+      tooltip.setTranslation(request.translation);
     }
     if (request.translationError) {
-      tooltip.setTooltipContent(request.translationError.join(','));
+      tooltip.setTranslation(request.translationError.join(','));
     }
     if (request.loginRequired) {
-      tooltip.setTooltipContent('Пожалуйста, войдите в систему или зарегистрируйтесь.');
+      tooltip.setTranslation('Пожалуйста, войдите в систему или зарегистрируйтесь.');
     }
   });

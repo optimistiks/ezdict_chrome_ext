@@ -80,6 +80,11 @@ ezdictTooltipElement.register = function (content) {
         return this;
       },
 
+      setCounter: function (count) {
+        this.$shadowRoot.find('#counter').text(count);
+        return this;
+      },
+
       setTop: function (top) {
         this.$shadowRoot.find('#sticker').css({'top': top});
         return this;

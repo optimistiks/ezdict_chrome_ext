@@ -42,8 +42,8 @@ chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.text) {
       api.translate(request.text)
-        .done(function (translation) {
-          sendMessageToActiveTab({translation: translation});
+        .done(function (translateResponse) {
+          sendMessageToActiveTab({translation: translateResponse});
         })
         .fail(function (jqXHR) {
           if (jqXHR.status === 401) {

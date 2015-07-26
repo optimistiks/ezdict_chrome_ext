@@ -32,7 +32,7 @@ tooltip.ready = function (callback) {
 tooltip.showTooltip = function () {
   this.ready(function () {
     this.rootElem.show();
-    this.setTooltipContent('loading...');
+    this.setTranslation('loading...');
     this.updateTooltipPosition();
   }.bind(this));
 };
@@ -44,9 +44,10 @@ tooltip.hideTooltip = function () {
   this.rootElem.hide();
 };
 
-tooltip.setTooltipContent = function (content) {
+tooltip.setTranslation = function (translationResponse) {
   this.ready(function () {
-    this.rootElem.setTranslation(content);
+    this.rootElem.setCounter(translationResponse.translation_history.count);
+    this.rootElem.setTranslation(translationResponse.translation);
     this.updateTooltipPosition();
   }.bind(this));
 };

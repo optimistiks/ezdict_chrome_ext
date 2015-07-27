@@ -32,7 +32,8 @@ tooltip.ready = function (callback) {
 tooltip.showTooltip = function () {
   this.ready(function () {
     this.rootElem.show();
-    this.setTranslation(chrome.i18n.getMessage('loadingMessage'));
+    this.resetCounter();
+    this.setTranslationText(chrome.i18n.getMessage('loadingMessage'));
     this.updateTooltipPosition();
   }.bind(this));
 };
@@ -46,16 +47,18 @@ tooltip.hideTooltip = function () {
 
 tooltip.setTranslation = function (translation) {
   this.ready(function () {
-    // todo: refactor
-    if (translation.translation && translation.translation_history) {
-      this.rootElem.setCounter(translation.translation_history.count);
-      this.rootElem.setTranslation(translation.translation);
-    } else {
-      this.rootElem.setCounter('-');
-      this.rootElem.setTranslation(translation);
-    }
+    this.rootElem.setCounter(translation.translation_history.count);
+    this.rootElem.setTranslation(translation.translation);
     this.updateTooltipPosition();
   }.bind(this));
+};
+
+tooltip.resetCounter = function() {
+  this.rootElem.setCounter('-');
+};
+
+tooltip.setTranslationText = function(translation) {
+  this.rootElem.setTranslation(translation);
 };
 
 tooltip.updateTooltipPosition = function () {

@@ -19,9 +19,11 @@ chrome.runtime.onMessage.addListener(
       tooltip.setTranslation(request.translation);
     }
     if (request.translationError) {
-      tooltip.setTranslation(request.translationError.join(','));
+      tooltip.resetCounter();
+      tooltip.setTranslationText(request.translationError.join(','));
     }
     if (request.loginRequired) {
-      tooltip.setTranslation(chrome.i18n.getMessage('loginError'));
+      tooltip.resetCounter();
+      tooltip.setTranslationText(chrome.i18n.getMessage('loginError'));
     }
   });

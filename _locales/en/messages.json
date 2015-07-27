@@ -10,5 +10,33 @@
   "loadingMessage": {
     "message": "Loading...",
     "description": "message when loading a translation"
+  },
+  "usernamePlaceholder": {
+    "message": "Username",
+    "description": "placeholder for username input"
+  },
+  "emailPlaceholder": {
+    "message": "E-mail",
+    "description": "placeholder for email input"
+  },
+  "passwordPlaceholder": {
+    "message": "Password",
+    "description": "placeholder for password input"
+  },
+  "loginButtonText": {
+    "message": "Log in",
+    "description": "text for login button"
+  },
+  "registerButtonText": {
+    "message": "Register",
+    "description": "text for register button"
+  },
+  "registrationLinkText": {
+    "message": "Registration",
+    "description": "text for link to registration"
+  },
+  "loginLinkText": {
+    "message": "Log in",
+    "description": "text for link to login"
   }
 }

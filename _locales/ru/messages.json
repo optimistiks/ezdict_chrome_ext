@@ -10,5 +10,33 @@
   "loadingMessage": {
     "message": "Загрузка...",
     "description": "message when loading a translation"
+  },
+  "usernamePlaceholder": {
+    "message": "Имя пользователя",
+    "description": "placeholder for username input"
+  },
+  "emailPlaceholder": {
+    "message": "E-mail",
+    "description": "placeholder for email input"
+  },
+  "passwordPlaceholder": {
+    "message": "Пароль",
+    "description": "placeholder for password input"
+  },
+  "loginButtonText": {
+    "message": "Войти",
+    "description": "text for login button"
+  },
+  "registerButtonText": {
+    "message": "Зарегистрироваться",
+    "description": "text for register button"
+  },
+  "registrationLinkText": {
+    "message": "Регистрация",
+    "description": "text for link to registration"
+  },
+  "loginLinkText": {
+    "message": "Вход",
+    "description": "text for link to login"
   }
 }

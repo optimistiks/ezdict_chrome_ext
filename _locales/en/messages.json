@@ -1,0 +1,14 @@
+{
+  "extDescription": {
+    "message": "EzDict extension",
+    "description": "extension description for manifest"
+  },
+  "loginError": {
+    "message": "Please, log in or register.",
+    "description": "error message when unauthorized 401"
+  },
+  "loadingMessage": {
+    "message": "Loading...",
+    "description": "message when loading a translation"
+  }
+}

@@ -32,7 +32,7 @@ tooltip.ready = function (callback) {
 tooltip.showTooltip = function () {
   this.ready(function () {
     this.rootElem.show();
-    this.setTranslation('loading...');
+    this.setTranslation(chrome.i18n.getMessage('loadingMessage'));
     this.updateTooltipPosition();
   }.bind(this));
 };
@@ -44,10 +44,16 @@ tooltip.hideTooltip = function () {
   this.rootElem.hide();
 };
 
-tooltip.setTranslation = function (translationResponse) {
+tooltip.setTranslation = function (translation) {
   this.ready(function () {
-    this.rootElem.setCounter(translationResponse.translation_history.count);
-    this.rootElem.setTranslation(translationResponse.translation);
+    // todo: refactor
+    if (translation.translation && translation.translation_history) {
+      this.rootElem.setCounter(translation.translation_history.count);
+      this.rootElem.setTranslation(translation.translation);
+    } else {
+      this.rootElem.setCounter('-');
+      this.rootElem.setTranslation(translation);
+    }
     this.updateTooltipPosition();
   }.bind(this));
 };

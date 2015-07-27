@@ -22,6 +22,6 @@ chrome.runtime.onMessage.addListener(
       tooltip.setTranslation(request.translationError.join(','));
     }
     if (request.loginRequired) {
-      tooltip.setTranslation('Пожалуйста, войдите в систему или зарегистрируйтесь.');
+      tooltip.setTranslation(chrome.i18n.getMessage('loginError'));
     }
   });

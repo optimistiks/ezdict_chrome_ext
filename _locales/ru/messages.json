@@ -9,7 +9,7 @@
   },
   "loadingMessage": {
     "message": "Загрузка...",
-    "description": "message when loading a translation"
+    "description": "message when loading something"
   },
   "usernamePlaceholder": {
     "message": "Имя пользователя",
@@ -38,5 +38,9 @@
   "loginLinkText": {
     "message": "Вход",
     "description": "text for link to login"
+  },
+  "logoutLinkText": {
+    "message": "Выйти",
+    "description": "text for link to log out"
   }
 }

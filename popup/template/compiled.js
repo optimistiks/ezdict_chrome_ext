@@ -13,6 +13,13 @@ templates['login'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(
     + alias3(((helper = (helper = helpers.registrationLinkText || (depth0 != null ? depth0.registrationLinkText : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"registrationLinkText","hash":{},"data":data}) : helper)))
     + "</a>\n</div>";
 },"useData":true});
+templates['main'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "<div>\n  <div id=\"username\">\n    logged in\n  </div>\n  <a href=\"#\" id=\"logout\">"
+    + this.escapeExpression(((helper = (helper = helpers.logoutLinkText || (depth0 != null ? depth0.logoutLinkText : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"logoutLinkText","hash":{},"data":data}) : helper)))
+    + "</a>\n</div>\n";
+},"useData":true});
 templates['registration'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
 

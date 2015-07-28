@@ -9,7 +9,7 @@
   },
   "loadingMessage": {
     "message": "Loading...",
-    "description": "message when loading a translation"
+    "description": "message when loading something"
   },
   "usernamePlaceholder": {
     "message": "Username",
@@ -38,5 +38,9 @@
   "loginLinkText": {
     "message": "Log in",
     "description": "text for link to login"
+  },
+  "logoutLinkText": {
+    "message": "Log out",
+    "description": "text for link to log out"
   }
 }

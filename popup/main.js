@@ -10,6 +10,10 @@ var init = function (bg) {
 
 chrome.runtime.getBackgroundPage(function (bg) {
   $(document).ready(function () {
+    var html = Handlebars.templates.main({
+      logoutLinkText: chrome.i18n.getMessage('logoutLinkText')
+    });
+    $('body').html(html);
     init(bg);
   })
 });

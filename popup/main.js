@@ -5,7 +5,6 @@ var init = function (bg) {
       window.location.href = '/popup/router.html';
     });
   });
-
 };
 
 chrome.runtime.getBackgroundPage(function (bg) {

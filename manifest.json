@@ -44,11 +44,9 @@
     ]
   }],
   "web_accessible_resources": [
-    "content/tooltip/font/webhostinghub-glyphs.ttf",
-    "content/tooltip/font/webhostinghub-glyphs.svg",
-    "content/tooltip/font/webhostinghub-glyphs.eot",
-    "content/tooltip/tooltip.html",
-
+    "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
+    "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
+    "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
     "bower_components/ezdict-tooltip-element/html/content.html"
   ]
 }

@@ -18,7 +18,7 @@ chrome.runtime.getBackgroundPage(function (bg) {
       registerButtonText: chrome.i18n.getMessage('registerButtonText'),
       loginLinkText: chrome.i18n.getMessage('loginLinkText')
     });
-    $('body').html(html);
+    $('#content').html(html);
     init(bg);
   })
 });

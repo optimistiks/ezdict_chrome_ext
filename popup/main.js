@@ -12,7 +12,7 @@ chrome.runtime.getBackgroundPage(function (bg) {
     var html = Handlebars.templates.main({
       logoutLinkText: chrome.i18n.getMessage('logoutLinkText')
     });
-    $('body').html(html);
+    $('#content').html(html);
     init(bg);
   })
 });

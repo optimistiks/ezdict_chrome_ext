@@ -5,16 +5,15 @@ var tooltip = {
 tooltip.createTooltip = function () {
   var deferred = new $.Deferred();
 
-  $.get(chrome.extension.getURL('bower_components/ezdict-tooltip-element/html/content.html'), function (content) {
-    ezdictTooltipElement.register(content);
-
-    xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
-      this.rootElem = document.querySelector('ezdict-tooltip-element');
-      this.rootElem.setJquery($).init();
-      deferred.resolve(this.rootElem);
-    }.bind(this));
-    document.body.appendChild(document.createElement('ezdict-tooltip-element'));
+  ezdictTooltipElement.setPathPrefix(chrome.extension.getURL('bower_components/ezdict-tooltip-element'));
+  ezdictTooltipElement.setLocale('en');
+  ezdictTooltipElement.register();
+  xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
+    this.rootElem = document.querySelector('ezdict-tooltip-element');
+    this.rootElem.setJquery($).init();
+    deferred.resolve(this.rootElem);
   }.bind(this));
+  document.body.appendChild(document.createElement('ezdict-tooltip-element'));
 
   return deferred.promise();
 };

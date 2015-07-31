@@ -35,10 +35,17 @@
     "js": [
       "bower_components/jquery/jquery.min.js",
       "bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
+
+      "bower_components/handlebars/handlebars.runtime.min.js",
+      "bower_components/i18next/i18next.min.js",
+      "bower_components/ezdict-tooltip-element/js/handlebars-helper.js",
+      "bower_components/ezdict-tooltip-element/html/template/compiled.js",
+
       "content/tooltip/js/webcomponents-config.js",
-      "bower_components/webcomponentsjs/webcomponents.min.js",
+      "bower_components/x-tag-core/lib/webcomponents.js",
       "bower_components/x-tag-core/dist/x-tag-core.min.js",
       "bower_components/ezdict-tooltip-element/js/element.js",
+
       "content/tooltip/js/tooltip.js",
       "content/content.js"
     ]
@@ -47,6 +54,7 @@
     "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
     "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
     "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
-    "bower_components/ezdict-tooltip-element/html/content.html"
+    "bower_components/ezdict-tooltip-element/_locales/en/messages.json",
+    "bower_components/ezdict-tooltip-element/_locales/ru/messages.json"
   ]
 }

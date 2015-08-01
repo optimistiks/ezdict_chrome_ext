@@ -7,5 +7,6 @@
   "closeTranslationTitle": "Close translation",
   "yourTranslationTitle": "Your translation",
   "ezdictTranslationTitle": "EzDict translation",
-  "bestUserTranslationTitle": "Best user translation"
+  "bestUserTranslationTitle": "Best user translation",
+  "loading": "Loading..."
 }

@@ -7,5 +7,6 @@
   "closeTranslationTitle": "Закрыть перевод",
   "yourTranslationTitle": "Ваш перевод",
   "ezdictTranslationTitle": "Перевод EzDict",
-  "bestUserTranslationTitle": "Лучший пользовательский перевод"
+  "bestUserTranslationTitle": "Лучший пользовательский перевод",
+  "loading": "Загрузка..."
 }

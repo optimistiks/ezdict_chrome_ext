@@ -11,11 +11,13 @@ tooltip.createTooltip = function () {
   ezdictTooltipElement.setLocale(locale.split('_')[0]);
 
   ezdictTooltipElement.register();
+
   xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
     this.rootElem = document.querySelector('ezdict-tooltip-element');
     this.rootElem.setJquery($).init();
     deferred.resolve(this.rootElem);
   }.bind(this));
+
   document.body.appendChild(document.createElement('ezdict-tooltip-element'));
 
   return deferred.promise();
@@ -34,8 +36,8 @@ tooltip.ready = function (callback) {
 tooltip.showTooltip = function () {
   this.ready(function () {
     this.rootElem.show();
-    this.resetCounter();
-    this.setTranslationText(chrome.i18n.getMessage('loadingMessage'));
+    this.rootElem.setIsLoading(true);
+    this.rootElem.redraw();
     this.updateTooltipPosition();
   }.bind(this));
 };
@@ -49,18 +51,21 @@ tooltip.hideTooltip = function () {
 
 tooltip.setTranslation = function (translation) {
   this.ready(function () {
-    this.rootElem.setCounter(translation.translation_history.count);
-    this.rootElem.setTranslation(translation.translation);
+    this.rootElem.setTranslation(translation);
+    this.rootElem.setIsLoading(false);
+    this.rootElem.setError(false);
+    this.rootElem.redraw();
     this.updateTooltipPosition();
   }.bind(this));
 };
 
-tooltip.resetCounter = function() {
-  this.rootElem.setCounter('-');
-};
-
-tooltip.setTranslationText = function(translation) {
-  this.rootElem.setTranslation(translation);
+tooltip.setError = function (error) {
+  this.ready(function () {
+    this.rootElem.setIsLoading(false);
+    this.rootElem.setError(error);
+    this.rootElem.redraw();
+    this.updateTooltipPosition();
+  }.bind(this));
 };
 
 tooltip.updateTooltipPosition = function () {

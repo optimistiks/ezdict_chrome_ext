@@ -1,6 +1,5 @@
 {
   "name": "ezdict_tooltip_element",
-  "version": "0.2.4",
   "main": "ezdict_tooltip_element.html",
   "homepage": "https://github.com/optimistiks/ezdict_tooltip_element/",
   "ignore": [
@@ -17,13 +16,13 @@
   "devDependencies": {
     "web-component-tester": "*"
   },
-  "_release": "0.2.4",
+  "_release": "d466229ea1",
   "_resolution": {
-    "type": "version",
-    "tag": "0.2.4",
-    "commit": "6f236f11f9b2e10f9e157a6a8c3a7a5b18cc3b47"
+    "type": "branch",
+    "branch": "master",
+    "commit": "d466229ea1f9ce0f4b67018f5fcc8443427f5a64"
   },
   "_source": "git://github.com/optimistiks/ezdict_tooltip_element.git",
-  "_target": "0.2.4",
+  "_target": "master",
   "_originalSource": "optimistiks/ezdict_tooltip_element"
 }

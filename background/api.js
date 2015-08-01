@@ -1,5 +1,15 @@
 var api = {
-  URL: 'http://api.ezdict.potapovmax.com'
+  URL: 'http://api.ezdict.potapovmax.com',
+  locale: 'en'
+};
+
+api.setLocale = function (locale) {
+  this.locale = locale;
+};
+
+api.addLocaleHeader = function (ajaxParams) {
+  ajaxParams.headers = ajaxParams.headers || {};
+  ajaxParams.headers['Accept-Language'] = this.locale;
 };
 
 api.buildUrl = function (path) {
@@ -7,6 +17,7 @@ api.buildUrl = function (path) {
 };
 
 api.sendRequest = function (ajaxParams) {
+  this.addLocaleHeader(ajaxParams);
   return $.ajax(ajaxParams).fail(function () {
     console.error('Request failed', arguments);
   });
@@ -22,6 +33,7 @@ api.sendSignedRequest = function (ajaxParams) {
   this.getToken().always(function (token) {
     ajaxParams.headers = ajaxParams.headers || {};
     ajaxParams.headers['Authorization'] = 'Token ' + token;
+    this.addLocaleHeader(ajaxParams);
     $.ajax(ajaxParams)
       .done(function (data, textStatus, jqXHR) {
         deferred.resolve(data, textStatus, jqXHR);
@@ -30,7 +42,7 @@ api.sendSignedRequest = function (ajaxParams) {
         console.error('Signed request failed', arguments);
         deferred.reject(jqXHR, textStatus, errorThrown);
       });
-  });
+  }.bind(this));
   return deferred.promise();
 };
 

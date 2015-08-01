@@ -7,6 +7,9 @@ var sendMessageToActiveTab = function (payload) {
   });
 };
 
+var locale = chrome.i18n.getMessage('@@ui_locale');
+api.setLocale(locale.split('_')[0]);
+
 bgApp = {};
 
 bgApp.checkLogin = function () {

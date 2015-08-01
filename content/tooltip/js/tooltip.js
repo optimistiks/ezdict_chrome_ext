@@ -6,7 +6,10 @@ tooltip.createTooltip = function () {
   var deferred = new $.Deferred();
 
   ezdictTooltipElement.setPathPrefix(chrome.extension.getURL('bower_components/ezdict-tooltip-element'));
-  ezdictTooltipElement.setLocale('en');
+
+  var locale = chrome.i18n.getMessage('@@ui_locale');
+  ezdictTooltipElement.setLocale(locale.split('_')[0]);
+
   ezdictTooltipElement.register();
   xtag.addEvent(window, 'ezdict-tooltip-element_inserted', function () {
     this.rootElem = document.querySelector('ezdict-tooltip-element');

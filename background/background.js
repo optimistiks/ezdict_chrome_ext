@@ -7,6 +7,21 @@ var sendMessageToActiveTab = function (payload) {
   });
 };
 
+var textMessageCallback = function (text) {
+  api.translate(text)
+    .done(function (translateResponse) {
+      sendMessageToActiveTab({translation: translateResponse});
+    })
+    .fail(function (jqXHR) {
+      if (jqXHR.status === 401) {
+        sendMessageToActiveTab({loginRequired: true});
+      }
+      if (jqXHR.responseJSON.string) {
+        sendMessageToActiveTab({translationError: jqXHR.responseJSON.string});
+      }
+    });
+};
+
 var locale = chrome.i18n.getMessage('@@ui_locale');
 api.setLocale(locale.split('_')[0]);
 
@@ -20,7 +35,6 @@ bgApp.getOption = function (option) {
   var deferred = $.Deferred();
 
   chrome.storage.sync.get(option, function (items) {
-    console.log('option get', option, items);
     deferred.resolve(items[option]);
   });
 
@@ -38,7 +52,6 @@ bgApp.setOption = function (name, value) {
   option[name] = value;
 
   chrome.storage.sync.set(option, function () {
-    console.log('option set', option, arguments);
     deferred.resolve();
   });
 
@@ -92,18 +105,12 @@ bgApp.login = function (formData) {
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.text) {
-      api.translate(request.text)
-        .done(function (translateResponse) {
-          sendMessageToActiveTab({translation: translateResponse});
-        })
-        .fail(function (jqXHR) {
-          if (jqXHR.status === 401) {
-            sendMessageToActiveTab({loginRequired: true});
-          }
-          if (jqXHR.responseJSON.string) {
-            sendMessageToActiveTab({translationError: jqXHR.responseJSON.string});
-          }
-        });
+      textMessageCallback(request.text);
+    }
+    if (request.getOption) {
+      bgApp.getOption(request.getOption).done(function (option) {
+        sendMessageToActiveTab({option: true, name: request.getOption, value: option});
+      })
     }
   });
 

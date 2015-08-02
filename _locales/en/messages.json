@@ -42,5 +42,21 @@
   "logoutLinkText": {
     "message": "Log out",
     "description": "text for link to log out"
+  },
+  "loggedInAsText": {
+    "message": "Logged in as",
+    "description": "Logged in as username"
+  },
+  "translateOnSelectText": {
+    "message": "Translate on select",
+    "description": "setting label"
+  },
+  "onText": {
+    "message": "On",
+    "description": "setting label"
+  },
+  "offText": {
+    "message": "Off",
+    "description": "setting label"
   }
 }

@@ -42,5 +42,21 @@
   "logoutLinkText": {
     "message": "Выйти",
     "description": "text for link to log out"
+  },
+  "loggedInAsText": {
+    "message": "Вы вошли как",
+    "description": "Logged in as username"
+  },
+  "translateOnSelectText": {
+    "message": "Переводить при выделении",
+    "description": "setting label"
+  },
+  "onText": {
+    "message": "Вкл",
+    "description": "setting label"
+  },
+  "offText": {
+    "message": "Выкл",
+    "description": "setting label"
   }
 }

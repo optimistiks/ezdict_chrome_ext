@@ -1,6 +1,20 @@
-<div>
-  <div id="username">
-    logged in
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="form-group">
+        <label for="ext_on">{{ chrome_t 'translateOnSelectText' }}</label>
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <label class="btn btn-success active">
+            <input type="radio" name="options" id="ext_on" autocomplete="off">{{ chrome_t 'onText' }}
+          </label>
+          <label class="btn btn-danger">
+            <input type="radio" name="options" id="ext_off" autocomplete="off">{{ chrome_t 'offText' }}
+          </label>
+        </div>
+        <span id="helpBlock" class="help-block">Ctrl + X</span>
+      </div>
+    </form>
+    {{ chrome_t 'loggedInAsText' }} {{ userInfo.username }}
+    <a href="#" id="logout">{{ chrome_t 'logoutLinkText' }}</a>
   </div>
-  <a href="#" id="logout">{{ logoutLinkText }}</a>
 </div>

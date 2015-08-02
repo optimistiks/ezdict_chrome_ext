@@ -9,10 +9,14 @@ var init = function (bg) {
 
 chrome.runtime.getBackgroundPage(function (bg) {
   $(document).ready(function () {
-    var html = Handlebars.templates.main({
-      logoutLinkText: chrome.i18n.getMessage('logoutLinkText')
+    bg.bgApp.checkLogin().done(function (userInfo) {
+      var html = Handlebars.templates.main({
+        userInfo: userInfo
+      });
+      $('#content').html(html);
+      init(bg);
+    }).fail(function () {
+      window.location.href = '/popup/login.html';
     });
-    $('#content').html(html);
-    init(bg);
   })
 });

@@ -15,8 +15,8 @@ bgApp = {};
 bgApp.checkLogin = function () {
   var deferred = $.Deferred();
   api.getUserInfo()
-    .done(function () {
-      deferred.resolve();
+    .done(function (userInfo) {
+      deferred.resolve(userInfo);
     })
     .fail(function (jqXHR) {
       if (jqXHR.status === 401) {

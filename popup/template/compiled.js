@@ -17,20 +17,26 @@ templates['login'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"registrationLinkText",{"name":"chrome_t","hash":{},"data":data}))
     + "</a>\n  </div>\n</div>\n";
 },"useData":true});
-templates['main'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+templates['main'] = template({"1":function(depth0,helpers,partials,data) {
+    return "active";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"ext_on\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"translateOnSelectText",{"name":"chrome_t","hash":{},"data":data}))
-    + "</label>\n        <div class=\"btn-group btn-group-justified\" data-toggle=\"buttons\">\n          <label class=\"btn btn-success active\">\n            <input type=\"radio\" name=\"options\" id=\"ext_on\" autocomplete=\"off\">"
+    + "</label>\n        <div class=\"btn-group btn-group-justified\" data-toggle=\"buttons\">\n          <label class=\"btn btn-success "
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_on\" autocomplete=\"off\" value=\"\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"onText",{"name":"chrome_t","hash":{},"data":data}))
-    + "\n          </label>\n          <label class=\"btn btn-danger\">\n            <input type=\"radio\" name=\"options\" id=\"ext_off\" autocomplete=\"off\">"
+    + "\n          </label>\n          <label class=\"btn btn-danger "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_off\" autocomplete=\"off\" value=\"1\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"offText",{"name":"chrome_t","hash":{},"data":data}))
-    + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">Ctrl + X</span>\n      </div>\n    </form>\n    "
+    + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">Ctrl + E</span>\n      </div>\n    </form>\n    <p>"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loggedInAsText",{"name":"chrome_t","hash":{},"data":data}))
     + " "
     + alias2(this.lambda(((stack1 = (depth0 != null ? depth0.userInfo : depth0)) != null ? stack1.username : stack1), depth0))
-    + "\n    <a href=\"#\" id=\"logout\">"
+    + "</p>\n    <a href=\"#\" id=\"logout\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"logoutLinkText",{"name":"chrome_t","hash":{},"data":data}))
     + "</a>\n  </div>\n</div>\n";
 },"useData":true});

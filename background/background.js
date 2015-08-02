@@ -12,7 +12,40 @@ api.setLocale(locale.split('_')[0]);
 
 bgApp = {};
 
-bgApp.checkLogin = function () {
+/**
+ * retrieves the option from the storage
+ * @returns {*}
+ */
+bgApp.getOption = function (option) {
+  var deferred = $.Deferred();
+
+  chrome.storage.sync.get(option, function (items) {
+    console.log('option get', option, items);
+    deferred.resolve(items[option]);
+  });
+
+  return deferred.promise();
+};
+
+/**
+ * sets the option to the storage
+ * @returns {*}
+ */
+bgApp.setOption = function (name, value) {
+  var deferred = $.Deferred();
+
+  var option = {};
+  option[name] = value;
+
+  chrome.storage.sync.set(option, function () {
+    console.log('option set', option, arguments);
+    deferred.resolve();
+  });
+
+  return deferred.promise();
+};
+
+bgApp.getUserInfo = function () {
   var deferred = $.Deferred();
   api.getUserInfo()
     .done(function (userInfo) {

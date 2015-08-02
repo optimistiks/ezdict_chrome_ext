@@ -9,7 +9,7 @@ popupApp.showMainView = function () {
 chrome.runtime.getBackgroundPage(function (bg) {
   $(document).ready(function () {
     $('#content').text(chrome.i18n.getMessage('loadingMessage'));
-    bg.bgApp.checkLogin()
+    bg.bgApp.getUserInfo()
       .done(function () {
         popupApp.showMainView()
       })

@@ -56,5 +56,13 @@
     "bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf",
     "bower_components/ezdict-tooltip-element/_locales/en/messages.json",
     "bower_components/ezdict-tooltip-element/_locales/ru/messages.json"
-  ]
+  ],
+  "commands": {
+    "command_is_off": {
+      "suggested_key": {
+        "default": "Alt+Shift+E"
+      },
+      "description": "__MSG_translateOnSelectText__"
+    }
+  }
 }

@@ -45,6 +45,21 @@ bgApp.setOption = function (name, value) {
   return deferred.promise();
 };
 
+bgApp.getOptionShortcut = function (option) {
+  var deferred = $.Deferred();
+  var commandName = 'command_' + option;
+
+  chrome.commands.getAll(function (commands) {
+    commands.forEach(function (command) {
+      if (command.name === commandName) {
+        deferred.resolve(command.shortcut);
+      }
+    });
+  });
+
+  return deferred.promise();
+};
+
 bgApp.getUserInfo = function () {
   var deferred = $.Deferred();
   api.getUserInfo()
@@ -91,3 +106,15 @@ chrome.runtime.onMessage.addListener(
         });
     }
   });
+
+chrome.commands.onCommand.addListener(function (command) {
+  if (command === 'command_is_off') {
+    bgApp.getOption('is_off').done(function (isOff) {
+      bgApp.setOption('is_off', !isOff).done(function () {
+        chrome.runtime.sendMessage({
+          commandToggle: true
+        });
+      });
+    })
+  }
+});

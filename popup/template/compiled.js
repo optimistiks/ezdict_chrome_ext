@@ -20,7 +20,7 @@ templates['login'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(
 templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     return "active";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"ext_on\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"translateOnSelectText",{"name":"chrome_t","hash":{},"data":data}))
@@ -32,7 +32,9 @@ templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_off\" autocomplete=\"off\" value=\"1\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"offText",{"name":"chrome_t","hash":{},"data":data}))
-    + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">Ctrl + E</span>\n      </div>\n    </form>\n    <p>"
+    + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">"
+    + alias2(((helper = (helper = helpers.isOffShortcut || (depth0 != null ? depth0.isOffShortcut : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"isOffShortcut","hash":{},"data":data}) : helper)))
+    + "</span>\n      </div>\n    </form>\n    <p>"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loggedInAsText",{"name":"chrome_t","hash":{},"data":data}))
     + " "
     + alias2(this.lambda(((stack1 = (depth0 != null ? depth0.userInfo : depth0)) != null ? stack1.username : stack1), depth0))

@@ -99,7 +99,22 @@ bgApp.logout = function () {
 };
 
 bgApp.login = function (formData) {
-  return api.login(formData);
+  return api.login(formData).fail(function (jqXHR) {
+    var response = jqXHR.responseJSON;
+    var errors = [];
+    Object.keys(response).forEach(function (key) {
+      if (typeof response[key] === 'string') {
+        errors.push(response[key]);
+      }
+      if (response[key].length) {
+        response[key].forEach(function (error) {
+          errors.push(error);
+        })
+      }
+    });
+    sendMessageToActiveTab({errors: errors});
+    chrome.runtime.sendMessage({errors: errors});
+  });
 };
 
 chrome.runtime.onMessage.addListener(

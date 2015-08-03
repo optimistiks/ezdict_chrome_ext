@@ -124,6 +124,8 @@ api.login = function (formData) {
     api.saveToken(response.auth_token).done(function () {
       deferred.resolve(response);
     });
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    deferred.reject(jqXHR, textStatus, errorThrown);
   });
 
   return deferred.promise();

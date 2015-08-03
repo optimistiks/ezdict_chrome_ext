@@ -1,9 +1,15 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
-templates['login'] = template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var alias1=helpers.helperMissing, alias2=this.escapeExpression;
+templates['login'] = template({"1":function(depth0,helpers,partials,data) {
+    return "        <p class=\"text-danger\">"
+    + this.escapeExpression(this.lambda(depth0, depth0))
+    + "</p>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
-  return "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <form id=\"login_form\">\n      <div class=\"form-group\">\n        <label for=\"username_input\">"
+  return "<div class=\"row\">\n  <div class=\"col-sm-12\">\n    <div>\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.errors : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <form id=\"login_form\">\n      <div class=\"form-group\">\n        <label for=\"username_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "</label>\n        <input required=\"required\" type=\"text\" class=\"form-control\" placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))

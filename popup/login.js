@@ -10,13 +10,20 @@ var init = function (bg) {
 };
 
 chrome.runtime.getBackgroundPage(function (bg) {
+  chrome.runtime.onMessage.addListener(
+    function (request, sender, sendResponse) {
+      if (request.errors) {
+        var html = Handlebars.templates.login({
+          errors: request.errors
+        });
+        $('#content').html(html);
+        init(bg);
+      }
+    }
+  );
+
   $(document).ready(function () {
-    var html = Handlebars.templates.login({
-      usernamePlaceholder: chrome.i18n.getMessage('usernamePlaceholder'),
-      passwordPlaceholder: chrome.i18n.getMessage('passwordPlaceholder'),
-      loginButtonText: chrome.i18n.getMessage('loginButtonText'),
-      registrationLinkText: chrome.i18n.getMessage('registrationLinkText')
-    });
+    var html = Handlebars.templates.login();
     $('#content').html(html);
     init(bg);
   })

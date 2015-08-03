@@ -1,5 +1,5 @@
 var api = {
-  URL: 'http://127.0.0.1:9000',
+  URL: 'http://api.ezdict.potapovmax.com',
   locale: 'en'
 };
 

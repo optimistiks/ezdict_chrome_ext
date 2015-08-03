@@ -91,9 +91,9 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
-  return "<div class=\"slide-down-btn\"><i class=\"icon-circleup\"></i></div>\n<div class=\"counter warning"
+  return "<div class=\"slide-down-btn\"><i class=\"icon-circleup\"></i></div>\n<div\n    class=\"counter warning"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.translation : depth0)) != null ? stack1.translation_history : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\" title=\""
+    + "\"\n    title=\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"counterTitle",{"name":"t","hash":{},"data":data}))
     + "\">\n  <p id=\"counter\">\n"
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.counter : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.program(5, data, 0),"data":data})) != null ? stack1 : "")

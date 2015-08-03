@@ -16,6 +16,13 @@ ezdictTooltipElement.setPathPrefix = function (path) {
   this.pathPrefix = path;
 };
 
+/**
+ * get full shadow dom content (with styles)
+ * if debug is on, template is compiled on-the-fly
+ *
+ * @param viewData
+ * @returns {JQueryDeferred}
+ */
 ezdictTooltipElement.getHtml = function (viewData) {
   viewData = viewData || {};
   var deferred = $.Deferred();
@@ -37,6 +44,13 @@ ezdictTooltipElement.getHtml = function (viewData) {
   return deferred.promise();
 };
 
+/**
+ * get root element contents (without styles)
+ * if debug is on, template is compiled on-the-fly
+ *
+ * @param viewData
+ * @returns {JQueryDeferred}
+ */
 ezdictTooltipElement.getTooltipHtml = function (viewData) {
   viewData = viewData || {};
   var deferred = $.Deferred();
@@ -123,7 +137,7 @@ ezdictTooltipElement.register = function () {
               }
             });
 
-            this.$shadowRoot.find('#sticker').on('#close_sticker', 'click', function () {
+            this.$shadowRoot.find('#close_sticker').on('click', function () {
               element.$shadowRoot.find('#sticker').hide();
             }.bind(this));
 

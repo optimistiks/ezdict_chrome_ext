@@ -1,23 +1,38 @@
-var init = function (bg) {
+var login = {
+  bg: null,
+  lastFormData: {}
+};
+
+login.setBackgroundPage = function (bg) {
+  this.bg = bg;
+};
+
+login.init = function () {
+  var login = this;
   $('#login_form').on('submit', function (e) {
     e.preventDefault();
     var form = $(this).serializeArray();
-    bg.bgApp.login(form).done(function () {
+    login.lastFormData = {};
+    form.forEach(function (field) {
+      login.lastFormData[field.name] = field.value;
+    });
+    login.bg.bgApp.login(form).done(function () {
       window.location.href = '/popup/router.html';
     });
   });
-
 };
 
 chrome.runtime.getBackgroundPage(function (bg) {
+  login.setBackgroundPage(bg);
   chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
       if (request.errors) {
         var html = Handlebars.templates.login({
-          errors: request.errors
+          errors: request.errors,
+          form: login.lastFormData
         });
         $('#content').html(html);
-        init(bg);
+        login.init();
       }
     }
   );
@@ -25,6 +40,6 @@ chrome.runtime.getBackgroundPage(function (bg) {
   $(document).ready(function () {
     var html = Handlebars.templates.login();
     $('#content').html(html);
-    init(bg);
+    login.init();
   })
 });

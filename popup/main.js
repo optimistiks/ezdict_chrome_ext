@@ -37,7 +37,6 @@ chrome.runtime.getBackgroundPage(function (bg) {
   chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
       if (request.commandToggle) {
-        console.log('command toggle');
         render(bg);
       }
     }

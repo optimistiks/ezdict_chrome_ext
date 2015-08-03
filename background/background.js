@@ -22,6 +22,23 @@ var textMessageCallback = function (text) {
     });
 };
 
+var requestFailCallback = function (jqXHR) {
+  var response = jqXHR.responseJSON;
+  var errors = [];
+  Object.keys(response).forEach(function (key) {
+    if (typeof response[key] === 'string') {
+      errors.push(response[key]);
+    }
+    if (response[key].length) {
+      response[key].forEach(function (error) {
+        errors.push(error);
+      })
+    }
+  });
+  sendMessageToActiveTab({errors: errors});
+  chrome.runtime.sendMessage({errors: errors});
+};
+
 var locale = chrome.i18n.getMessage('@@ui_locale');
 api.setLocale(locale.split('_')[0]);
 
@@ -91,7 +108,7 @@ bgApp.getUserInfo = function () {
 };
 
 bgApp.register = function (formData) {
-  return api.register(formData);
+  return api.register(formData).fail(requestFailCallback);
 };
 
 bgApp.logout = function () {
@@ -99,22 +116,7 @@ bgApp.logout = function () {
 };
 
 bgApp.login = function (formData) {
-  return api.login(formData).fail(function (jqXHR) {
-    var response = jqXHR.responseJSON;
-    var errors = [];
-    Object.keys(response).forEach(function (key) {
-      if (typeof response[key] === 'string') {
-        errors.push(response[key]);
-      }
-      if (response[key].length) {
-        response[key].forEach(function (error) {
-          errors.push(error);
-        })
-      }
-    });
-    sendMessageToActiveTab({errors: errors});
-    chrome.runtime.sendMessage({errors: errors});
-  });
+  return api.login(formData).fail(requestFailCallback);
 };
 
 chrome.runtime.onMessage.addListener(
@@ -124,7 +126,11 @@ chrome.runtime.onMessage.addListener(
     }
     if (request.getOption) {
       bgApp.getOption(request.getOption).done(function (option) {
-        sendMessageToActiveTab({option: true, name: request.getOption, value: option});
+        sendMessageToActiveTab({
+          option: true,
+          name: request.getOption,
+          value: option
+        });
       })
     }
   });

@@ -96,6 +96,7 @@ api.removeToken = function () {
  */
 api.register = function (formData) {
   var deferred = $.Deferred();
+
   this.sendRequest({
     url: this.buildUrl('/user/register'),
     type: 'POST',
@@ -109,7 +110,10 @@ api.register = function (formData) {
         deferred.resolve(response);
       });
     }
+  }).fail(function (jqXHR, textStatus, errorThrown) {
+    deferred.reject(jqXHR, textStatus, errorThrown);
   });
+
   return deferred.promise();
 };
 

@@ -1,10 +1,10 @@
 <div class="slide-down-btn"><i class="icon-circleup"></i></div>
 <div
-    class="counter warning{{#if translation.translation_history}}{{translation.translation_history.warn_level}}{{/if}}"
+    class="counter warning{{#if history}}{{history.warn_level}}{{/if}}"
     title="{{ t 'counterTitle' }}">
   <p id="counter">
-    {{#if counter}}
-      {{ counter }}
+    {{#if count}}
+      {{ count }}
     {{else}}
       -
     {{/if}}
@@ -17,9 +17,11 @@
   <div class="st-btn-wrap" title="{{ t 'addTranslationTitle' }}">
     <div class="st-btn add-new"><i class="icon-createfile"></i></div>
   </div>
-  <div class="st-btn-wrap vrashi" title="{{ t 'addToLearningTitle' }}">
-    <div class="st-btn add-to-learning">Aa</div>
-  </div>
+  {{#unless learning}}
+    <div id="add_to_learning" class="st-btn-wrap vrashi" title="{{ t 'addToLearningTitle' }}">
+      <div class="st-btn add-to-learning">Aa</div>
+    </div>
+  {{/unless}}
   <div class="st-btn-wrap vrashi" title="{{ t 'likeTitle' }}">
     <div class="st-btn like-it"><i class="icon-thumbs-up"></i></div>
   </div>
@@ -41,9 +43,9 @@
       {{#if isLoading}}
         <p>{{ t 'loading' }}</p>
       {{else}}
-        {{#if translation.ya_dict.def.length}}
+        {{#if ya_dict.def.length}}
           <ul>
-            {{#each translation.ya_dict.def}}
+            {{#each ya_dict.def}}
               <li>
                 <p>[{{ this.ts }}]</p>
                 {{#each this.tr}}
@@ -62,7 +64,7 @@
             {{/each}}
           </ul>
         {{else}}
-          <p>{{ translation.translation }}</p>
+          <p>{{ translation }}</p>
         {{/if}}
       {{/if}}
     {{/if}}

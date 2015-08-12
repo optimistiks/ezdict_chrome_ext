@@ -138,7 +138,14 @@ ezdictTooltipElement.register = function () {
             });
 
             this.$shadowRoot.find('#close_sticker').on('click', function () {
-              element.$shadowRoot.find('#sticker').hide();
+              this.$shadowRoot.find('#sticker').hide();
+            }.bind(this));
+
+            this.$shadowRoot.find('#add_to_learning').on('click', function () {
+              if (!this.getLearning()) {
+                xtag.fireEvent(this, this._getEventName('add-to-learning'));
+                this.setLearning(true);
+              }
             }.bind(this));
 
             return this;
@@ -152,23 +159,36 @@ ezdictTooltipElement.register = function () {
 
           setIsLoading: function (isLoading) {
             if (isLoading) {
-              this.viewData.counter = null;
+              this.viewData.count = null;
             }
             this.viewData.isLoading = !!isLoading;
             return this;
           },
 
-          setTranslation: function (translation) {
-            this.viewData.counter = translation.translation_history.count;
-            this.viewData.translation = translation;
+          setError: function (error) {
+            if (error) {
+              this.viewData.count = null;
+            }
+            this.viewData.error = error;
             return this;
           },
 
-          setError: function (error) {
-            if (error) {
-              this.viewData.counter = null;
-            }
-            this.viewData.error = error;
+          setTranslation: function (translation) {
+            this.viewData.learning = translation.learning;
+            this.viewData.ya_dict = translation.ya_dict;
+            this.viewData.history = translation.translation_history;
+            this.viewData.count = translation.translation_history.count;
+            this.viewData.translation = translation.translation;
+
+            return this;
+          },
+
+          getLearning: function () {
+            return this.viewData.learning;
+          },
+
+          setLearning: function (learning) {
+            this.viewData.learning = learning;
             return this;
           },
 

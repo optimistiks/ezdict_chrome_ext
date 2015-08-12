@@ -7,11 +7,7 @@ var storage = {
     var deferred = $.Deferred();
 
     chrome.storage.sync.get(key, function (items) {
-      if (items.auth_token) {
-        deferred.resolve(items.auth_token);
-      } else {
-        deferred.reject();
-      }
+      deferred.resolve(items[key]);
     });
 
     return deferred.promise();

@@ -17,7 +17,7 @@ login.init = function () {
       login.lastFormData[field.name] = field.value;
     });
     login.bg.bgApp.login(form).then(function () {
-      window.location.href = '/popup/router.html';
+      // window.location.href = '/popup/router.html';
     });
   });
 };

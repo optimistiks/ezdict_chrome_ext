@@ -61,8 +61,8 @@ var textMessageCallback = function (text) {
       if (exception.statusCode === 401) {
         sendMessageToActiveTab({loginRequired: true});
       }
-      if (exception.error.string) {
-        sendMessageToActiveTab({translationError: jqXHR.responseJSON.string});
+      if (exception.error && exception.error.string) {
+        sendMessageToActiveTab({translationError: exception.error.string});
       }
     });
 };

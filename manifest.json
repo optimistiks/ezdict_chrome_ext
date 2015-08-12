@@ -24,8 +24,7 @@
   "background": {
     "scripts": [
       "bower_components/jquery/jquery.min.js",
-      "background/api.js",
-      "background/background.js"
+      "background/dist/bundle.js"
     ],
     "persistent": false
   },

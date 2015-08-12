@@ -1,3 +1,48 @@
+var api = require('ezdict-api-client');
+//api.setProtocol('http');
+//api.setHost('127.0.0.1:9000');
+
+var storage = {
+  getItem: function (key) {
+    var deferred = $.Deferred();
+
+    chrome.storage.sync.get(key, function (items) {
+      if (items.auth_token) {
+        deferred.resolve(items.auth_token);
+      } else {
+        deferred.reject();
+      }
+    });
+
+    return deferred.promise();
+  },
+
+  setItem: function (key, value) {
+    var deferred = $.Deferred();
+
+    var data = {};
+    data[key] = value;
+
+    chrome.storage.sync.set(data, function () {
+      deferred.resolve(value);
+    });
+
+    return deferred.promise();
+  },
+
+  removeItem: function (key) {
+    var deferred = $.Deferred();
+
+    chrome.storage.sync.remove(key, function () {
+      deferred.resolve();
+    });
+
+    return deferred.promise();
+  }
+};
+api.setStorage(storage);
+
+
 var sendMessageToActiveTab = function (payload) {
   chrome.tabs.query({
     active: true,
@@ -9,21 +54,21 @@ var sendMessageToActiveTab = function (payload) {
 
 var textMessageCallback = function (text) {
   api.translate(text)
-    .done(function (translateResponse) {
+    .then(function (translateResponse) {
       sendMessageToActiveTab({translation: translateResponse});
     })
-    .fail(function (jqXHR) {
-      if (jqXHR.status === 401) {
+    .catch(function (exception) {
+      if (exception.statusCode === 401) {
         sendMessageToActiveTab({loginRequired: true});
       }
-      if (jqXHR.responseJSON.string) {
+      if (exception.error.string) {
         sendMessageToActiveTab({translationError: jqXHR.responseJSON.string});
       }
     });
 };
 
-var requestFailCallback = function (jqXHR) {
-  var response = jqXHR.responseJSON;
+var requestFailCallback = function (exception) {
+  var response = exception.error;
   var errors = [];
   Object.keys(response).forEach(function (key) {
     if (typeof response[key] === 'string') {
@@ -37,6 +82,7 @@ var requestFailCallback = function (jqXHR) {
   });
   sendMessageToActiveTab({errors: errors});
   chrome.runtime.sendMessage({errors: errors});
+  throw exception;
 };
 
 var locale = chrome.i18n.getMessage('@@ui_locale');
@@ -93,11 +139,11 @@ bgApp.getOptionShortcut = function (option) {
 bgApp.getUserInfo = function () {
   var deferred = $.Deferred();
   api.getUserInfo()
-    .done(function (userInfo) {
+    .then(function (userInfo) {
       deferred.resolve(userInfo);
     })
-    .fail(function (jqXHR) {
-      if (jqXHR.status === 401) {
+    .catch(function (exception) {
+      if (exception.statusCode === 401) {
         deferred.reject();
       } else {
         deferred.reject();
@@ -107,8 +153,15 @@ bgApp.getUserInfo = function () {
   return deferred.promise();
 };
 
+bgApp.processFormData = function (formData) {
+  return formData.reduce(function (obj, formField) {
+    obj[formField.name] = formField.value;
+    return obj;
+  }, {});
+};
+
 bgApp.register = function (formData) {
-  return api.register(formData).fail(requestFailCallback);
+  return api.register(this.processFormData(formData)).catch(requestFailCallback);
 };
 
 bgApp.logout = function () {
@@ -116,7 +169,7 @@ bgApp.logout = function () {
 };
 
 bgApp.login = function (formData) {
-  return api.login(formData).fail(requestFailCallback);
+  return api.login(this.processFormData(formData)).catch(requestFailCallback);
 };
 
 chrome.runtime.onMessage.addListener(

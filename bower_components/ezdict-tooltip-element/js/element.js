@@ -145,6 +145,7 @@ ezdictTooltipElement.register = function () {
               if (!this.getLearning()) {
                 xtag.fireEvent(this, this._getEventName('add-to-learning'));
                 this.setLearning(true);
+                this.redraw();
               }
             }.bind(this));
 

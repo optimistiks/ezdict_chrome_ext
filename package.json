@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "browserify": "browserify background/background.js -o background/dist/bundle.js"
+    "handlebars": "handlebars popup/template/*.handlebars -f popup/template/compiled.js",
+    "browserify": "browserify background/background.js -o background/dist/bundle.js",
+    "build": "npm run handlebars && npm run browserify"
   },
   "repository": {
     "type": "git",
@@ -20,6 +22,7 @@
     "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client"
   },
   "devDependencies": {
-    "browserify": "~11.0.1"
+    "browserify": "~11.0.1",
+    "handlebars": "^3.0.3"
   }
 }

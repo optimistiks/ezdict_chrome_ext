@@ -173,6 +173,9 @@ chrome.runtime.onMessage.addListener(
     if (request.text) {
       textMessageCallback(request.text);
     }
+    if (request.addToLearning) {
+      api.createWordLearning(request.addToLearning).catch(function(e) {})
+    }
     if (request.getOption) {
       bgApp.getOption(request.getOption).done(function (option) {
         sendMessageToActiveTab({

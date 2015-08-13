@@ -17,11 +17,11 @@
   <div class="st-btn-wrap" title="{{ t 'addTranslationTitle' }}">
     <div class="st-btn add-new"><i class="icon-createfile"></i></div>
   </div>
-  {{#unless learning}}
+  {{#unless error}}{{#unless isLoading}}{{#unless learning}}
     <div id="add_to_learning" class="st-btn-wrap vrashi" title="{{ t 'addToLearningTitle' }}">
       <div class="st-btn add-to-learning">Aa</div>
     </div>
-  {{/unless}}
+  {{/unless}}{{/unless}}{{/unless}}
   <div class="st-btn-wrap vrashi" title="{{ t 'likeTitle' }}">
     <div class="st-btn like-it"><i class="icon-thumbs-up"></i></div>
   </div>

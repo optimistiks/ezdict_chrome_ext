@@ -82,6 +82,14 @@ bgApp.setOption = function (name, value) {
     deferred.resolve();
   });
 
+  deferred.done(function () {
+    sendMessageToActiveTab({
+      option: true,
+      name: name,
+      value: value
+    });
+  });
+
   return deferred.promise();
 };
 

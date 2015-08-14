@@ -1,16 +1,58 @@
-var currentText = null;
+var app = {
+  currentText: null,
+  isOff: true
+};
 
-$(document).on('mouseup', function (e) {
-  if ($(e.target).closest(tooltip.rootElem).length > 0) {
-    return false;
-  }
+/**
+ * sends request to background to retrieve "is_off" setting value
+ * binds handler to mouseup which runs a translation process
+ */
+app.init = function () {
   chrome.runtime.sendMessage({getOption: 'is_off'});
-});
 
+  $(document).on('mouseup', function (e) {
+    if ($(e.target).closest(tooltip.rootElem).length > 0) {
+      return false;
+    }
+    if (this.isOff) {
+      tooltip.hideTooltip();
+      return false;
+    }
+    this.translate();
+  }.bind(this));
+};
+
+/**
+ * get currently selected text, process it,
+ * send to background page, show or hide tooltip
+ */
+app.translate = function () {
+  var selection = window.getSelection();
+  var text = selection.toString().replace(/^\s+|\s+$/g, '');
+  if (text && text.length > 1) {
+    this.currentText = text;
+    console.log(text);
+    chrome.runtime.sendMessage({text: text});
+    tooltip.showTooltip();
+  } else {
+    this.currentText = null;
+    tooltip.hideTooltip();
+  }
+};
+
+app.init();
+
+/**
+ * bind to add_to_learning button click inside the tooltip
+ * @todo: better to move to tooltip (smth like tooltip.onAddToLearning(function))
+ */
 xtag.addEvent(window, 'ezdict-tooltip-element_add-to-learning', function () {
   chrome.runtime.sendMessage({addToLearning: currentText});
 });
 
+/**
+ * bind to various messages coming from background page
+ */
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
     if (request.translation) {
@@ -22,20 +64,7 @@ chrome.runtime.onMessage.addListener(
     if (request.loginRequired) {
       tooltip.setError(chrome.i18n.getMessage('loginError'));
     }
-    if (request.option && request.name === 'is_off' && !request.value) {
-      if (request.value) {
-        return false;
-      }
-      var selection = window.getSelection();
-      var text = selection.toString().replace(/^\s+|\s+$/g, '');
-      if (text && text.length > 1) {
-        currentText = text;
-        console.log(text);
-        chrome.runtime.sendMessage({text: text});
-        tooltip.showTooltip();
-      } else {
-        currentText = null;
-        tooltip.hideTooltip();
-      }
+    if (request.option && request.name === 'is_off') {
+      app.isOff = request.value;
     }
   });

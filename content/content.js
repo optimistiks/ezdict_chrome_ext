@@ -52,6 +52,8 @@ xtag.addEvent(window, 'ezdict-tooltip-element_add-to-learning', function () {
 
 /**
  * bind to various messages coming from background page
+ * @todo: better to move to some component, which handles such events
+ * @todo: smth like message.on(type, handler);
  */
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {

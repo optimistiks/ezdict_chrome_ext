@@ -1,32 +1,34 @@
 var init = function (bg) {
-  $('input').on('change', function (e) {
+  $('input, select').on('change', function (e) {
     var settings = $(this).closest('form').serializeArray();
     settings.forEach(function (setting) {
-      bg.bgApp.setOption(setting.name, setting.value);
+      bg.app.setOption(setting.name, setting.value);
     });
   });
   $('#logout').on('click', function (e) {
     e.preventDefault();
-    bg.bgApp.logout().done(function () {
+    bg.app.logout().done(function () {
       window.location.href = '/popup/router.html';
     });
   });
 };
 
 var render = function (bg) {
-  var langsDef = bg.bgApp.getLangs();
-  var userInfoDef = bg.bgApp.getUserInfo();
-  var isOffDef = bg.bgApp.getOption('is_off');
-  var isOffShortcutDef = bg.bgApp.getOptionShortcut('is_off');
+  var langsDef = bg.app.getLangs();
+  var userInfoDef = bg.app.getUserInfo();
+  var isOffDef = bg.app.getOption('is_off');
+  var isOffShortcutDef = bg.app.getOptionShortcut('is_off');
+  var targetLangDef = bg.app.getOption('target_lang');
 
-  $.when(userInfoDef, isOffDef, isOffShortcutDef, langsDef)
-    .done(function (userInfo, isOff, isOffShortcut, langs) {
+  $.when(userInfoDef, isOffDef, isOffShortcutDef, langsDef, targetLangDef)
+    .done(function (userInfo, isOff, isOffShortcut, langs, targetLang) {
       var html = Handlebars.templates.main({
         isOff: isOff,
         isOffShortcut: isOffShortcut,
         userInfo: userInfo,
-        langs: langs
-      });
+        langs: langs,
+        targetLang: targetLang
+    });
       $('#content').html(html);
       init(bg);
     });

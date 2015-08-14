@@ -16,7 +16,7 @@ registration.init = function () {
     form.forEach(function (field) {
       reg.lastFormData[field.name] = field.value;
     });
-    reg.bg.bgApp.register(form).then(function () {
+    reg.bg.app.register(form).then(function () {
       window.location.href = '/popup/router.html';
     });
   });

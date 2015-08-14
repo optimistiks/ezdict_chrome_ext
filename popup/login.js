@@ -16,7 +16,7 @@ login.init = function () {
     form.forEach(function (field) {
       login.lastFormData[field.name] = field.value;
     });
-    login.bg.bgApp.login(form).then(function () {
+    login.bg.app.login(form).then(function () {
       window.location.href = '/popup/router.html';
     });
   });

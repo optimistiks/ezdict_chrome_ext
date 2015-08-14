@@ -30,32 +30,42 @@ templates['login'] = template({"1":function(depth0,helpers,partials,data) {
 templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     return "active";
 },"3":function(depth0,helpers,partials,data) {
-    var helper, alias1=this.escapeExpression;
+    return "checked";
+},"5":function(depth0,helpers,partials,data,blockParams,depths) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "            <option value=\""
-    + alias1(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
-    + "\">"
-    + alias1(this.lambda(depth0, depth0))
+    + alias2(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\" "
+    + ((stack1 = (helpers.compare || (depth0 && depth0.compare) || alias1).call(depth0,(data && data.key),"===",(depths[1] != null ? depths[1].targetLang : depths[1]),{"name":"compare","hash":{},"fn":this.program(6, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ">"
+    + alias2(this.lambda(depth0, depth0))
     + "</option>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+},"6":function(depth0,helpers,partials,data) {
+    return "selected";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,blockParams,depths) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "<div class=\"row\">\n  <div class=\"col-xs-12\">\n    <form>\n      <div class=\"form-group\">\n        <label for=\"ext_on\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"translateOnSelectText",{"name":"chrome_t","hash":{},"data":data}))
     + "</label>\n        <div class=\"btn-group btn-group-justified\" data-toggle=\"buttons\">\n          <label class=\"btn btn-success "
-    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_on\" autocomplete=\"off\" value=\"\">"
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_on\" autocomplete=\"off\" value=\"\"\n                   "
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"if","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ">\n            "
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"onText",{"name":"chrome_t","hash":{},"data":data}))
     + "\n          </label>\n          <label class=\"btn btn-danger "
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_off\" autocomplete=\"off\" value=\"1\">"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"if","hash":{},"fn":this.program(1, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\">\n            <input type=\"radio\" name=\"is_off\" id=\"ext_off\" autocomplete=\"off\" value=\"1\"\n                   "
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.isOff : depth0),{"name":"unless","hash":{},"fn":this.program(3, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ">\n            "
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"offText",{"name":"chrome_t","hash":{},"data":data}))
     + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">"
     + alias2(((helper = (helper = helpers.isOffShortcut || (depth0 != null ? depth0.isOffShortcut : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"isOffShortcut","hash":{},"data":data}) : helper)))
     + "</span>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"target_lang\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"targetLanguageText",{"name":"chrome_t","hash":{},"data":data}))
-    + "</label>\n        <select id=\"target_lang\" class=\"form-control\">\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.langs : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "</label>\n        <select id=\"target_lang\" name=\"target_lang\" class=\"form-control\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.langs : depth0),{"name":"each","hash":{},"fn":this.program(5, data, 0, blockParams, depths),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "        </select>\n      </div>\n    </form>\n    <p>"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loggedInAsText",{"name":"chrome_t","hash":{},"data":data}))
     + " "
@@ -63,7 +73,7 @@ templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     + "</p>\n    <a href=\"#\" id=\"logout\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"logoutLinkText",{"name":"chrome_t","hash":{},"data":data}))
     + "</a>\n  </div>\n</div>\n";
-},"useData":true});
+},"useData":true,"useDepths":true});
 templates['registration'] = template({"1":function(depth0,helpers,partials,data) {
     return "        <p class=\"text-danger\">"
     + this.escapeExpression(this.lambda(depth0, depth0))

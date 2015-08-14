@@ -47,7 +47,7 @@ app.init();
  * @todo: better to move to tooltip (smth like tooltip.onAddToLearning(function))
  */
 xtag.addEvent(window, 'ezdict-tooltip-element_add-to-learning', function () {
-  chrome.runtime.sendMessage({addToLearning: currentText});
+  chrome.runtime.sendMessage({addToLearning: app.currentText});
 });
 
 /**

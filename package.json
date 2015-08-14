@@ -19,7 +19,8 @@
     "url": "https://github.com/optimistiks/ezdict_chrome_ext/issues"
   },
   "dependencies": {
-    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client"
+    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client",
+    "jquery": "^2.1.4"
   },
   "devDependencies": {
     "browserify": "~11.0.1",

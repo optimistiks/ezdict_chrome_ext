@@ -23,7 +23,6 @@
   },
   "background": {
     "scripts": [
-      "bower_components/jquery/jquery.min.js",
       "background/dist/bundle.js"
     ],
     "persistent": false

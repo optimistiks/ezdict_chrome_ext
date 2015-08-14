@@ -29,6 +29,14 @@ templates['login'] = template({"1":function(depth0,helpers,partials,data) {
 },"useData":true});
 templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     return "active";
+},"3":function(depth0,helpers,partials,data) {
+    var helper, alias1=this.escapeExpression;
+
+  return "            <option value=\""
+    + alias1(((helper = (helper = helpers.key || (data && data.key)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"key","hash":{},"data":data}) : helper)))
+    + "\">"
+    + alias1(this.lambda(depth0, depth0))
+    + "</option>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
@@ -44,7 +52,11 @@ templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"offText",{"name":"chrome_t","hash":{},"data":data}))
     + "\n          </label>\n        </div>\n        <span id=\"helpBlock\" class=\"help-block\">"
     + alias2(((helper = (helper = helpers.isOffShortcut || (depth0 != null ? depth0.isOffShortcut : depth0)) != null ? helper : alias1),(typeof helper === "function" ? helper.call(depth0,{"name":"isOffShortcut","hash":{},"data":data}) : helper)))
-    + "</span>\n      </div>\n    </form>\n    <p>"
+    + "</span>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"target_lang\">"
+    + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"targetLanguageText",{"name":"chrome_t","hash":{},"data":data}))
+    + "</label>\n        <select id=\"target_lang\" class=\"form-control\">\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.langs : depth0),{"name":"each","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "        </select>\n      </div>\n    </form>\n    <p>"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loggedInAsText",{"name":"chrome_t","hash":{},"data":data}))
     + " "
     + alias2(this.lambda(((stack1 = (depth0 != null ? depth0.userInfo : depth0)) != null ? stack1.username : stack1), depth0))

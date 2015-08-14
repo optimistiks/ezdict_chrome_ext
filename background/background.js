@@ -1,41 +1,9 @@
+var $ = require('jquery');
 var api = require('ezdict-api-client');
 //api.setProtocol('http');
 //api.setHost('127.0.0.1:9000');
 
-var storage = {
-  getItem: function (key) {
-    var deferred = $.Deferred();
-
-    chrome.storage.sync.get(key, function (items) {
-      deferred.resolve(items[key]);
-    });
-
-    return deferred.promise();
-  },
-
-  setItem: function (key, value) {
-    var deferred = $.Deferred();
-
-    var data = {};
-    data[key] = value;
-
-    chrome.storage.sync.set(data, function () {
-      deferred.resolve(value);
-    });
-
-    return deferred.promise();
-  },
-
-  removeItem: function (key) {
-    var deferred = $.Deferred();
-
-    chrome.storage.sync.remove(key, function () {
-      deferred.resolve();
-    });
-
-    return deferred.promise();
-  }
-};
+var storage = require('./storage.js');
 api.setStorage(storage);
 
 
@@ -149,6 +117,27 @@ bgApp.getUserInfo = function () {
   return deferred.promise();
 };
 
+bgApp.getLangs = function () {
+  var def = $.Deferred();
+
+  chrome.storage.sync.get('langs', function (items) {
+    if (items.langs) {
+      def.resolve(items.langs);
+    } else {
+      api.getLanguages().then(function (langs) {
+        chrome.storage.sync.set({langs: langs}, function () {
+          def.resolve(langs);
+        });
+      }).catch(function (exception) {
+        def.reject();
+      })
+    }
+  });
+
+  return def.promise();
+};
+
+
 bgApp.processFormData = function (formData) {
   return formData.reduce(function (obj, formField) {
     obj[formField.name] = formField.value;
@@ -174,7 +163,8 @@ chrome.runtime.onMessage.addListener(
       textMessageCallback(request.text);
     }
     if (request.addToLearning) {
-      api.createWordLearning(request.addToLearning).catch(function(e) {})
+      api.createWordLearning(request.addToLearning).catch(function (e) {
+      })
     }
     if (request.getOption) {
       bgApp.getOption(request.getOption).done(function (option) {

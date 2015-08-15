@@ -1,10 +1,23 @@
 var init = function (bg) {
-  $('input, select').on('change', function (e) {
-    var settings = $(this).closest('form').serializeArray();
+
+  // изменение настроек расширения
+  $('.js-extension').on('change', function (e) {
+    var settings = $(this).closest('form').find('.js-extension').serializeArray();
     settings.forEach(function (setting) {
       bg.app.setOption(setting.name, setting.value);
     });
   });
+
+  // изменение настроек профиля пользователя
+  $('.js-global').on('change', function (e) {
+    var settings = $(this).closest('form').find('.js-global').serializeArray();
+    var profileParams = {};
+    settings.forEach(function (setting) {
+      profileParams[setting.name] = setting.value;
+    });
+    bg.app.updateProfile(profileParams);
+  });
+
   $('#logout').on('click', function (e) {
     e.preventDefault();
     bg.app.logout().done(function () {
@@ -14,21 +27,25 @@ var init = function (bg) {
 };
 
 var render = function (bg) {
-  var langsDef = bg.app.getLangs();
+  var langsDef = bg.app.getLanguages();
   var userInfoDef = bg.app.getUserInfo();
   var isOffDef = bg.app.getOption('is_off');
   var isOffShortcutDef = bg.app.getOptionShortcut('is_off');
-  var targetLangDef = bg.app.getOption('target_lang');
 
-  $.when(userInfoDef, isOffDef, isOffShortcutDef, langsDef, targetLangDef)
-    .done(function (userInfo, isOff, isOffShortcut, langs, targetLang) {
+  var userProfileDef = $.Deferred();
+  bg.app.getProfile().then(function (profile) {
+    userProfileDef.resolve(profile)
+  });
+
+  $.when(userInfoDef, isOffDef, isOffShortcutDef, langsDef, userProfileDef)
+    .done(function (userInfo, isOff, isOffShortcut, languages, userProfile) {
       var html = Handlebars.templates.main({
         isOff: isOff,
         isOffShortcut: isOffShortcut,
         userInfo: userInfo,
-        langs: langs,
-        targetLang: targetLang
-    });
+        languages: languages,
+        userProfile: userProfile
+      });
       $('#content').html(html);
       init(bg);
     });

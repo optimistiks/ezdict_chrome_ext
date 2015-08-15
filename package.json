@@ -19,6 +19,7 @@
     "url": "https://github.com/optimistiks/ezdict_chrome_ext/issues"
   },
   "dependencies": {
+    "bluebird": "^2.9.34",
     "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client",
     "jquery": "^2.1.4"
   },

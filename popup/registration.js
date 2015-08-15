@@ -18,6 +18,8 @@ registration.init = function () {
     });
     reg.bg.app.register(form).then(function () {
       window.location.href = '/popup/router.html';
+    }).catch(function (exception) {
+
     });
   });
 };

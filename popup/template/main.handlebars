@@ -5,13 +5,13 @@
         <label for="ext_on">{{ chrome_t 'translateOnSelectText' }}</label>
         <div class="btn-group btn-group-justified" data-toggle="buttons">
           <label class="btn btn-success {{#unless isOff}}active{{/unless}}">
-            <input type="radio" name="is_off" id="ext_on" autocomplete="off" value=""
-                   {{#if isOff}}checked{{/if}}>
+            <input class="js-extension" type="radio" name="is_off" id="ext_on" autocomplete="off" value=""
+                   {{#unless isOff}}checked{{/unless}}>
             {{ chrome_t 'onText' }}
           </label>
           <label class="btn btn-danger {{#if isOff}}active{{/if}}">
-            <input type="radio" name="is_off" id="ext_off" autocomplete="off" value="1"
-                   {{#unless isOff}}checked{{/unless}}>
+            <input class="js-extension" type="radio" name="is_off" id="ext_off" autocomplete="off" value="1"
+                   {{#if isOff}}checked{{/if}}>
             {{ chrome_t 'offText' }}
           </label>
         </div>
@@ -19,9 +19,9 @@
       </div>
       <div class="form-group">
         <label for="target_lang">{{ chrome_t 'targetLanguageText' }}</label>
-        <select id="target_lang" name="target_lang" class="form-control">
-          {{#each langs}}
-            <option value="{{@key}}" {{#compare @key '===' ../targetLang}}selected{{/compare}}>{{this}}</option>
+        <select id="target_lang" name="target_lang" class="form-control js-global">
+          {{#each languages}}
+            <option value="{{this.code}}" {{#compare this.code '===' ../userProfile.target_lang}}selected{{/compare}}>{{this.name}}</option>
           {{/each}}
         </select>
       </div>

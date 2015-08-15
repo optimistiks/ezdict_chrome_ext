@@ -18,6 +18,8 @@ login.init = function () {
     });
     login.bg.app.login(form).then(function () {
       window.location.href = '/popup/router.html';
+    }).catch(function (exception) {
+
     });
   });
 };

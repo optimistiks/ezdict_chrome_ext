@@ -1,3 +1,5 @@
+//@todo: избавиться от Deferred
+
 var $ = require('jquery');
 var api = require('../api');
 var sendMessageToActiveTab = require('../sendMessageToActiveTab');
@@ -94,7 +96,15 @@ app.getUserInfo = function () {
   return deferred.promise();
 };
 
-app.getLangs = function () {
+app.getProfile = function () {
+  return api.getProfile();
+};
+
+app.updateProfile = function (params) {
+  return api.updateProfile(params);
+};
+
+app.getLanguages = function () {
   var def = $.Deferred();
 
   chrome.storage.sync.get('langs', function (items) {
@@ -113,7 +123,6 @@ app.getLangs = function () {
 
   return def.promise();
 };
-
 
 app.processFormData = function (formData) {
   return formData.reduce(function (obj, formField) {
@@ -139,14 +148,9 @@ app.createWordLearning = function (word) {
 };
 
 app.translate = function (word) {
-  return api.translate(word);
+  return this.getProfile().then(function (profile) {
+    return api.translate(word, profile.target_lang)
+  });
 };
-
-var locale = require('../locale');
-app.getOption('target_lang').done(function (lang) {
-  if (!lang) {
-    app.setOption('target_lang', locale);
-  }
-});
 
 module.exports = app;

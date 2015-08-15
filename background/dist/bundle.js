@@ -55,9 +55,6 @@ chrome.commands.onCommand.addListener(function (command) {
 },{"./modules/app":3,"./modules/sendMessageToActiveTab":5,"jquery":391}],2:[function(require,module,exports){
 var api = require('ezdict-api-client');
 
-api.setProtocol('http');
-api.setHost('127.0.0.1:9000');
-
 var storage = require('../storage');
 api.setStorage(storage);
 

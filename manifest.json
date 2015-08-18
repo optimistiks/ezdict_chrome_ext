@@ -10,7 +10,6 @@
     "128": "icons/green/128х128-green.png"
   },
   "permissions": [
-    "http://api.ezdict.potapovmax.com/",
     "storage"
   ],
   "browser_action": {
@@ -62,5 +61,6 @@
       },
       "description": "__MSG_translateOnSelectText__"
     }
-  }
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAsAlkDie7YXYSaFC0QuSWw2xrYPilHs1Fi310SJc8y8tBDCiMbtOZUofFI7T9aAaxycZr3o1zY9VUO1vFKHWyfUc/ADIdXk4Vf8sOnD0USpyfg2XVYrfOtWZo9XNrZHzEqq3s2Gm+680+8NkRePQFNc8BhqGO7HtR3fo4t+Qg5WG2CfmPPw+Cid2sSwmimJj/zjTUYpQpl/YbTDKf/CWW+zLFf5wLlHUVGJQ7xCqTxt9/vndTa6yq1aF9eVsogNk14kW1jScstXhPf34TwEEre3eCHfoHuHqCjVR6tcY7w6HTgghHv00IVd6RM1dEGFshdZXLgRSOdjvmBEmq91t+2QIDAQAB"
 }

@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "bluebird": "^2.9.34",
-    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client#0.2.0",
+    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client#master",
     "jquery": "^2.1.4"
   },
   "devDependencies": {

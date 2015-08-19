@@ -55,7 +55,7 @@ chrome.commands.onCommand.addListener(function (command) {
 chrome.runtime.onMessageExternal.addListener(
   function (request, sender, sendResponse) {
     if (request.getToken) {
-      //todo: заменить на app.getToken, см. todo к storage
+      //todo: заменить на storage.getToken, см. todo к storage
       chrome.storage.sync.get('auth_token', function (items) {
         sendResponse(items['auth_token']);
       });
@@ -73,8 +73,6 @@ var locale = require('../locale');
 api.setLocale(locale);
 
 //todo: ввести config
-api.setHost('127.0.0.1:9000');
-
 module.exports = api;
 
 },{"../locale":4,"../storage":6,"ezdict-api-client":249}],3:[function(require,module,exports){
@@ -253,8 +251,9 @@ module.exports = function (payload) {
 },{}],6:[function(require,module,exports){
 var $ = require('jquery');
 
-//todo: убрать работу со storage из api
-//todo: сохранение токена производить в коллбеках логина и регистрации
+//todo: storage переделать в tokenStorage
+//todo: setToken, getToken, removeToken
+//todo: тогда можно использовать его в api и где угодно
 
 var storage = {
   getItem: function (key) {

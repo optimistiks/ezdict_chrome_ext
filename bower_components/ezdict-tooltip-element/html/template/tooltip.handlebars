@@ -44,25 +44,30 @@
         <p>{{ t 'loading' }}</p>
       {{else}}
         {{#if ya_dict.def.length}}
-          <ul>
-            {{#each ya_dict.def}}
-              <li>
-                <p>[{{ this.ts }}]</p>
-                {{#each this.tr}}
-                  <p>{{ this.text }}</p>
-                  {{#if this.syn.length}}<br>{{/if}}
-                  <p>{{#each this.syn}}{{ this.text }}{{#unless @last}}, {{/unless}}{{/each}}</p>
-                  {{#if this.ex.length}}<br>{{/if}}
-                  <ul>
-                    {{#each this.ex}}
-                      <li>{{ this.text }} - {{ this.tr.0.text }}</li>
-                    {{/each}}
-                  </ul>
-                  <br>
-                {{/each}}
-              </li>
-            {{/each}}
-          </ul>
+          <div>
+            <ul>
+              {{#each ya_dict.def}}
+                <li>
+                  <p>[{{ this.ts }}]</p>
+                  {{#each this.tr}}
+                    <p>{{ this.text }}</p>
+                    {{#if this.syn.length}}<br>{{/if}}
+                    <p>{{#each this.syn}}{{ this.text }}{{#unless @last}}, {{/unless}}{{/each}}</p>
+                    {{#if this.ex.length}}<br>{{/if}}
+                    <ul>
+                      {{#each this.ex}}
+                        <li>{{ this.text }} - {{ this.tr.0.text }}</li>
+                      {{/each}}
+                    </ul>
+                    <br>
+                  {{/each}}
+                </li>
+              {{/each}}
+            </ul>
+            <p>{{ t 'yaDictDisclaimer' }}
+              <a href="http://api.yandex.ru/dictionary/" target="_blank">"{{ t 'yaDictBrand' }}"</a>
+            </p>
+          </div>
         {{else}}
           <p>{{ translation }}</p>
         {{/if}}

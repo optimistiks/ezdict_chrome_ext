@@ -50,33 +50,37 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 
   return ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(17, data, 0),"inverse":this.program(27, data, 0),"data":data})) != null ? stack1 : "");
 },"17":function(depth0,helpers,partials,data) {
-    var stack1;
+    var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
-  return "          <ul>\n"
+  return "          <div>\n            <ul>\n"
     + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "          </ul>\n";
+    + "            </ul>\n            <p>"
+    + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictDisclaimer",{"name":"t","hash":{},"data":data}))
+    + "\n              <a href=\"http://api.yandex.ru/dictionary/\" target=\"_blank\">\""
+    + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictBrand",{"name":"t","hash":{},"data":data}))
+    + "\"</a>\n            </p>\n          </div>\n";
 },"18":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "              <li>\n                <p>["
+  return "                <li>\n                  <p>["
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.ts : depth0), depth0))
     + "]</p>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.tr : depth0),{"name":"each","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "              </li>\n";
+    + "                </li>\n";
 },"19":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "                  <p>"
+  return "                    <p>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.text : depth0), depth0))
-    + "</p>\n                  "
+    + "</p>\n                    "
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.syn : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n                  <p>"
+    + "\n                    <p>"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.syn : depth0),{"name":"each","hash":{},"fn":this.program(22, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "</p>\n                  "
+    + "</p>\n                    "
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.ex : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n                  <ul>\n"
+    + "\n                    <ul>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.ex : depth0),{"name":"each","hash":{},"fn":this.program(25, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "                  </ul>\n                  <br>\n";
+    + "                    </ul>\n                    <br>\n";
 },"20":function(depth0,helpers,partials,data) {
     return "<br>";
 },"22":function(depth0,helpers,partials,data) {
@@ -89,7 +93,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"25":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
-  return "                      <li>"
+  return "                        <li>"
     + alias2(alias1((depth0 != null ? depth0.text : depth0), depth0))
     + " - "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.tr : depth0)) != null ? stack1['0'] : stack1)) != null ? stack1.text : stack1), depth0))

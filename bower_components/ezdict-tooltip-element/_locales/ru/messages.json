@@ -8,5 +8,7 @@
   "yourTranslationTitle": "Ваш перевод",
   "ezdictTranslationTitle": "Перевод EzDict",
   "bestUserTranslationTitle": "Лучший пользовательский перевод",
-  "loading": "Загрузка..."
+  "loading": "Загрузка...",
+  "yaDictDisclaimer": "Реализовано с помощью сервиса",
+  "yaDictBrand": "Яндекс.Словарь"
 }

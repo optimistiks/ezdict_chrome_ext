@@ -8,5 +8,7 @@
   "yourTranslationTitle": "Your translation",
   "ezdictTranslationTitle": "EzDict translation",
   "bestUserTranslationTitle": "Best user translation",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "yaDictDisclaimer": "Powered by",
+  "yaDictBrand": "Yandex.Dictionary"
 }

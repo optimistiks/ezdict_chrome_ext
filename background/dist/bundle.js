@@ -52,6 +52,17 @@ chrome.commands.onCommand.addListener(function (command) {
   }
 });
 
+chrome.runtime.onMessageExternal.addListener(
+  function (request, sender, sendResponse) {
+    if (request.getToken) {
+      //todo: заменить на app.getToken, см. todo к storage
+      chrome.storage.sync.get('auth_token', function (items) {
+        sendResponse(items['auth_token']);
+      });
+      return true;
+    }
+  });
+
 },{"./modules/app":3,"./modules/sendMessageToActiveTab":5,"jquery":391}],2:[function(require,module,exports){
 var api = require('ezdict-api-client');
 
@@ -60,6 +71,9 @@ api.setStorage(storage);
 
 var locale = require('../locale');
 api.setLocale(locale);
+
+//todo: ввести config
+api.setHost('127.0.0.1:9000');
 
 module.exports = api;
 
@@ -88,7 +102,9 @@ var requestFailCallback = function (exception) {
   throw exception;
 };
 
-var app = {};
+var app = {
+  api: api
+};
 
 /**
  * retrieves the option from the storage
@@ -236,6 +252,9 @@ module.exports = function (payload) {
 
 },{}],6:[function(require,module,exports){
 var $ = require('jquery');
+
+//todo: убрать работу со storage из api
+//todo: сохранение токена производить в коллбеках логина и регистрации
 
 var storage = {
   getItem: function (key) {

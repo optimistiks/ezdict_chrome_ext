@@ -50,3 +50,14 @@ chrome.commands.onCommand.addListener(function (command) {
     })
   }
 });
+
+chrome.runtime.onMessageExternal.addListener(
+  function (request, sender, sendResponse) {
+    if (request.getToken) {
+      //todo: заменить на storage.getToken, см. todo к storage
+      chrome.storage.sync.get('auth_token', function (items) {
+        sendResponse(items['auth_token']);
+      });
+      return true;
+    }
+  });

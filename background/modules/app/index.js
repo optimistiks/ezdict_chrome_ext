@@ -22,7 +22,9 @@ var requestFailCallback = function (exception) {
   throw exception;
 };
 
-var app = {};
+var app = {
+  api: api
+};
 
 /**
  * retrieves the option from the storage

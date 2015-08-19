@@ -1,5 +1,9 @@
 var $ = require('jquery');
 
+//todo: storage переделать в tokenStorage
+//todo: setToken, getToken, removeToken
+//todo: тогда можно использовать его в api и где угодно
+
 var storage = {
   getItem: function (key) {
     var deferred = $.Deferred();

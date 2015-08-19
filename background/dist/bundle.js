@@ -56,8 +56,14 @@ chrome.runtime.onMessageExternal.addListener(
   function (request, sender, sendResponse) {
     if (request.getToken) {
       //todo: заменить на storage.getToken, см. todo к storage
-      chrome.storage.sync.get('auth_token', function (items) {
-        sendResponse(items['auth_token']);
+      app.api.getToken().then(function (token) {
+        sendResponse(token);
+      });
+      return true;
+    }
+    if (request.saveToken) {
+      app.api.saveToken(request.saveToken).then(function (token) {
+        sendResponse(token);
       });
       return true;
     }

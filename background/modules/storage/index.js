@@ -1,41 +1,37 @@
 var $ = require('jquery');
 
-//todo: storage переделать в tokenStorage
-//todo: setToken, getToken, removeToken
-//todo: тогда можно использовать его в api и где угодно
-
 var storage = {
-  getItem: function (key) {
-    var deferred = $.Deferred();
+    getToken: function () {
+        var deferred = $.Deferred();
 
-    chrome.storage.sync.get(key, function (items) {
-      deferred.resolve(items[key]);
-    });
+        chrome.storage.sync.get('auth_token', function (items) {
+            deferred.resolve(items[key]);
+        });
 
-    return deferred.promise();
-  },
+        return deferred.promise();
+    },
 
-  setItem: function (key, value) {
-    var deferred = $.Deferred();
+    saveToken: function (value) {
+        var deferred = $.Deferred();
 
-    var data = {};
-    data[key] = value;
+        var data = {};
+        data['auth_token'] = value;
 
-    chrome.storage.sync.set(data, function () {
-      deferred.resolve(value);
-    });
+        chrome.storage.sync.set(data, function () {
+            deferred.resolve(value);
+        });
 
-    return deferred.promise();
-  },
+        return deferred.promise();
+    },
 
-  removeItem: function (key) {
-    var deferred = $.Deferred();
+    removeToken: function () {
+        var deferred = $.Deferred();
 
-    chrome.storage.sync.remove(key, function () {
-      deferred.resolve();
-    });
+        chrome.storage.sync.remove('auth_token', function () {
+            deferred.resolve();
+        });
 
-    return deferred.promise();
-  }
+        return deferred.promise();
+    }
 };
 module.exports = storage;

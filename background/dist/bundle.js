@@ -6,7 +6,7 @@ var storage = require('./modules/storage');
 
 var sendMessageToActiveTab = require('./modules/sendMessageToActiveTab');
 
-var textMessageCallback = function (text) {
+var translate = function (text) {
     app.translate(text)
         .then(function (translateResponse) {
             sendMessageToActiveTab({translation: translateResponse});
@@ -25,11 +25,7 @@ var textMessageCallback = function (text) {
 chrome.runtime.onMessage.addListener(
     function (request, sender, sendResponse) {
         if (request.text) {
-            textMessageCallback(request.text);
-        }
-        if (request.addToLearning) {
-            app.createWordLearning(request.addToLearning).catch(function (e) {
-            })
+            translate(request.text);
         }
         if (request.getOption) {
             app.getOption(request.getOption).done(function (option) {
@@ -232,10 +228,6 @@ app.logout = function () {
 
 app.login = function (formData) {
   return api.login(this.processFormData(formData)).catch(requestFailCallback);
-};
-
-app.createWordLearning = function (word) {
-  return api.createWordLearning(word);
 };
 
 app.translate = function (word) {

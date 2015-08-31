@@ -1,4 +1,4 @@
-@import "compass/reset" ;
+@import "compass/reset";
 @import "compass/utilities";
 @import "compass/css3";
 
@@ -11,12 +11,12 @@ $main-width: 1470px;
 
 // все, что касается ссаного стикера-здесь
 .sticker {
-  bottom:78%;
+  bottom: 78%;
   right: 25%;
   position: absolute;
   z-index: 1000000;
   width: 200px;
-  background:#109926;
+  background: #109926;
   padding-bottom: 25px;
   @include box-sizing(border-box);
 
@@ -26,49 +26,56 @@ $main-width: 1470px;
     z-index: 1;
     bottom: -27px;
     right: 50%;
-    margin-right:-13px ;
+    margin-right: -13px;
     border: 14px solid;
     border-color: #109926 transparent transparent transparent;
   }
-  i{
-    color:white;
+  i {
+    color: white;
   }
 }
+
 .slide-down-btn {
   cursor: pointer;
   position: absolute;
   bottom: 5px;
   right: 5px;
   font-size: 0;
-  &:hover{
-  @include box-shadow(0 0 10px white, 0 0 10px inset);
-  @include border-radius(15px);
+  &:hover {
+    @include box-shadow(0 0 10px white, 0 0 10px inset);
+    @include border-radius(15px);
   }
-  >i{
+  > i {
     font-size: 16px;
   }
 }
-.slide-down-btn.slide-up{
- @include transform (rotate(180deg));
+
+.slide-down-btn.slide-up {
+  @include transform (rotate(180deg));
 }
+
 .control-panel {
   position: absolute;
 }
+
 .control-panel.left {
   left: -33px;
 }
+
 .control-panel.right {
   right: -33px;
 }
-.st-btn-wrap{
+
+.st-btn-wrap {
   cursor: pointer;
 
 }
-.st-btn{
+
+.st-btn {
   font-size: 18px;
   width: 26px;
   height: 22px;
-  background:#109926;
+  background: #109926;
   margin-bottom: 3px;
   font-family: 'times';
   text-align: center;
@@ -83,6 +90,7 @@ $main-width: 1470px;
     background-color: #003600;
   }
 }
+
 .counter {
   overflow: hidden;
   position: absolute;
@@ -92,28 +100,33 @@ $main-width: 1470px;
   text-align: center;
   background: #fff;
   top: -25px;
-  >p{
+  > p {
     font: 800 14px/22px helvetica, sans-serif;
     color: #20a034;
   }
 
 }
+
 .counter.warning1 {
-  background:#efd7d7;
+  background: #efd7d7;
 }
+
 .counter.warning2 {
-  background:#e5d8a5;
+  background: #e5d8a5;
 }
+
 .counter.warning3 {
-  background:#dcab71;
+  background: #dcab71;
 }
+
 .counter.warning4 {
-  background:#dc8071;
+  background: #dc8071;
 }
+
 .counter.warning5 {
-  background:#ca3030;
-  p{
-    color:white;
+  background: #ca3030;
+  p {
+    color: white;
   }
 }
 
@@ -129,6 +142,7 @@ $main-width: 1470px;
 .st-btn.add-to-learning {
 
 }
+
 .st-btn.like-it {
   font-size: 17px;
   display: none;
@@ -138,11 +152,10 @@ $main-width: 1470px;
 .st-btn.close {
   font-size: 14px;
 
- // background: #109926 url('../img/promo-nav.png') 0px -80px no-repeat;
- }
+  // background: #109926 url('../img/promo-nav.png') 0px -80px no-repeat;
+}
 
-
-.vrashi:hover .st-btn  {
+.vrashi:hover .st-btn {
   -webkit-animation: rotating 1s linear infinite;
   -moz-animation: rotating 1s linear infinite;
   -ms-animation: rotating 1s linear infinite;
@@ -162,10 +175,11 @@ $main-width: 1470px;
 
   100% {
     @include transform(rotateY(360deg));
- }
+  }
 }
 
-@-webkit-keyframes rotating /* Safari and Chrome */ { 
+@-webkit-keyframes rotating /* Safari and Chrome */
+{
   0% {
     @include transform(rotateY(0deg));
   }
@@ -177,46 +191,53 @@ $main-width: 1470px;
 
   100% {
     @include transform(rotateY(360deg));
- }
+  }
 }
+
 .sticker-source-wrap {
   display: table; /*фикс для Safari*/
   padding: 3px 0 0 3px;
   font-size: 0;
 
 }
+
 .sticker-source-wrap > div {
   display: inline-block;
-  color:white;
+  color: white;
   cursor: pointer;
   font-size: 12px;
   margin-right: 2px;
 }
+
 .st-source-btn {
   width: 16px;
   height: 16px;
   text-align: center;
   line-height: 16px;
-  vertical-align:middle;
+  vertical-align: middle;
   text-shadow: 0 0 0.5px white;
   &:hover {
-    background:#88cc93;
+    background: #88cc93;
   }
   &:active {
-    background:#003600;
+    background: #003600;
   }
 }
-.st-source-btn.ezdict{
+
+.st-source-btn.ezdict {
   font-size: 13px;
 }
+
 .st-source-btn.best {
   line-height: 14px;
   font-size: 14px;
 }
+
 .st-source-btn.active {
-  background:#003600;
+  background: #003600;
 }
-.st-translate{
+
+.st-translate {
   font: 14px/25px helvetica, sans-serif;
   overflow: hidden;
   color: white;
@@ -228,13 +249,14 @@ $main-width: 1470px;
   @include transition(all 0.5s ease);
   @include box-sizing(border-box);
 }
+
 .st-translate.large {
   max-height: 160px;
   //overflow-y: auto;
 }
+
 #ezdict-sticker, #best-sticker {
   display: none;
 }
-
 
 // все, что касается ссаного стикера-здесь <END>

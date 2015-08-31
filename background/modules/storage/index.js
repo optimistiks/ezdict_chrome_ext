@@ -1,11 +1,12 @@
 var $ = require('jquery');
+//todo: move to bluebird
 
 var storage = {
     getToken: function () {
         var deferred = $.Deferred();
 
         chrome.storage.sync.get('auth_token', function (items) {
-            deferred.resolve(items[key]);
+            deferred.resolve(items['auth_token']);
         });
 
         return deferred.promise();

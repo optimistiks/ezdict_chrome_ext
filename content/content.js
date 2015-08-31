@@ -43,14 +43,6 @@ app.translate = function () {
 app.init();
 
 /**
- * bind to add_to_learning button click inside the tooltip
- * @todo: better to move to tooltip (smth like tooltip.onAddToLearning(function))
- */
-xtag.addEvent(window, 'ezdict-tooltip-element_add-to-learning', function () {
-  chrome.runtime.sendMessage({addToLearning: app.currentText});
-});
-
-/**
  * bind to various messages coming from background page
  * @todo: better to move to some component, which handles such events
  * @todo: smth like message.on(type, handler);

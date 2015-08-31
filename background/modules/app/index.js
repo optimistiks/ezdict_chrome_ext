@@ -145,10 +145,6 @@ app.login = function (formData) {
   return api.login(this.processFormData(formData)).catch(requestFailCallback);
 };
 
-app.createWordLearning = function (word) {
-  return api.createWordLearning(word);
-};
-
 app.translate = function (word) {
   return this.getProfile().then(function (profile) {
     return api.translate(word, profile.target_lang)

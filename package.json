@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "handlebars": "handlebars popup/template/*.handlebars -f popup/template/compiled.js",
-    "browserify": "browserify --ignore-missing background/background.js -o background/dist/bundle.js",
-    "build": "npm run handlebars && npm run browserify"
+    "browserify-background": "browserify --ignore-missing background/background.js -o background/dist/bundle.js",
+    "browserify-content": "browserify --ignore-missing content/content.js -o content/dist/bundle.js",
+    "build": "npm run handlebars && npm run browserify-background && npm run browserify-content"
   },
   "repository": {
     "type": "git",

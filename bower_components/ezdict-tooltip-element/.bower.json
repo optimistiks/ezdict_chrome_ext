@@ -16,11 +16,11 @@
   "devDependencies": {
     "web-component-tester": "*"
   },
-  "_release": "68f5821f2e",
+  "_release": "d875379d66",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "68f5821f2e3cee02bea5daf044c0ae4b9942fe97"
+    "commit": "d875379d66c55683359b80334b09c9ff949a99b6"
   },
   "_source": "git://github.com/optimistiks/ezdict_tooltip_element.git",
   "_target": "master",

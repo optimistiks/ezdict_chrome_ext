@@ -1,9 +1,0 @@
-@font-face {
-    font-family: 'WebHostingHub-Glyphs';
-    src: url('chrome-extension://__MSG_@@extension_id__/bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.eot');
-    src: url('chrome-extension://__MSG_@@extension_id__/bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.eot?#iefix') format('embedded-opentype'),
-    url('chrome-extension://__MSG_@@extension_id__/bower_components/ezdict-tooltip-element/font/webhostinghub-glyphs.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    -moz-font-feature-settings: "calt=0,liga=0";
-}

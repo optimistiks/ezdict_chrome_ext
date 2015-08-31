@@ -28,7 +28,7 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "css": ["content/tooltip/css/whhg.css"],
+    "css": ["content/legacy/css/fonts.css"],
     "js": [
       "bower_components/jquery/jquery.min.js",
       "bower_components/jquery-slimscroll/jquery.slimscroll.min.js",
@@ -38,13 +38,12 @@
       "bower_components/ezdict-tooltip-element/js/handlebars-helper.js",
       "bower_components/ezdict-tooltip-element/html/template/compiled.js",
 
-      "content/tooltip/js/webcomponents-config.js",
+      "content/legacy/js/webcomponents-config.js",
       "bower_components/x-tag-core/lib/webcomponents.js",
       "bower_components/x-tag-core/dist/x-tag-core.min.js",
       "bower_components/ezdict-tooltip-element/js/element.js",
 
-      "content/tooltip/js/tooltip.js",
-      "content/content.js"
+      "content/dist/bundle.js"
     ]
   }],
   "web_accessible_resources": [

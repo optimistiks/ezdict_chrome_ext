@@ -1,7 +1,7 @@
 (function() {
   var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
 templates['login'] = template({"1":function(depth0,helpers,partials,data) {
-  return "                <p class=\"text-danger\">"
+    return "                <p class=\"text-danger\">"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</p>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -9,23 +9,23 @@ templates['login'] = template({"1":function(depth0,helpers,partials,data) {
 
   return "<div class=\"row\">\n    <div class=\"col-xs-12\">\n        <div>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.errors : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-      + "        </div>\n        <form id=\"login_form\">\n            <div class=\"form-group\">\n                <label for=\"username_input\">"
+    + "        </div>\n        <form id=\"login_form\">\n            <div class=\"form-group\">\n                <label for=\"username_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-      + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"username\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.username : stack1), depth0))
-      + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
+    + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-      + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"password\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.password : stack1), depth0))
-      + "\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">"
+    + "\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loginButtonText",{"name":"chrome_t","hash":{},"data":data}))
-      + "</button>\n            <a class=\"pull-right\" href=\"/popup/registration.html\">"
+    + "</button>\n            <a class=\"pull-right\" href=\"/popup/registration.html\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"registrationLinkText",{"name":"chrome_t","hash":{},"data":data}))
-      + "</a>\n        </form>\n    </div>\n</div>\n";
+    + "</a>\n        </form>\n    </div>\n</div>\n";
 },"useData":true});
 templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     return "active";
@@ -75,7 +75,7 @@ templates['main'] = template({"1":function(depth0,helpers,partials,data) {
     + "</a>\n  </div>\n</div>\n";
 },"useData":true,"useDepths":true});
 templates['registration'] = template({"1":function(depth0,helpers,partials,data) {
-  return "                <p class=\"text-danger\">"
+    return "                <p class=\"text-danger\">"
     + this.escapeExpression(this.lambda(depth0, depth0))
     + "</p>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
@@ -83,28 +83,28 @@ templates['registration'] = template({"1":function(depth0,helpers,partials,data)
 
   return "<div class=\"row\">\n    <div class=\"col-xs-12\">\n        <div>\n"
     + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.errors : depth0),{"name":"each","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-      + "        </div>\n        <form id=\"registration_form\">\n            <div class=\"form-group\">\n                <label for=\"username_input\">"
+    + "        </div>\n        <form id=\"registration_form\">\n            <div class=\"form-group\">\n                <label for=\"username_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-      + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"usernamePlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"username\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.username : stack1), depth0))
-      + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"email_input\">"
+    + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"email_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"emailPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-      + "</label>\n                <input required=\"required\" type=\"email\" class=\"form-control\" id=\"email_input\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"email\" class=\"form-control\" id=\"email_input\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"emailPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"email\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.email : stack1), depth0))
-      + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
+    + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-      + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"password\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.password : stack1), depth0))
-      + "\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">"
+    + "\">\n            </div>\n            <button type=\"submit\" class=\"btn btn-success\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"registerButtonText",{"name":"chrome_t","hash":{},"data":data}))
-      + "</button>\n            <a class=\"pull-right\" href=\"/popup/login.html\">"
+    + "</button>\n            <a class=\"pull-right\" href=\"/popup/login.html\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"loginLinkText",{"name":"chrome_t","hash":{},"data":data}))
-      + "</a>\n        </form>\n    </div>\n</div>\n\n";
+    + "</a>\n        </form>\n    </div>\n</div>\n\n";
 },"useData":true});
 })();

@@ -1,3 +1,5 @@
+var tooltip = require('./modules/tooltip');
+
 var app = {
   currentText: null,
   isOff: true

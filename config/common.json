@@ -1,0 +1,6 @@
+{
+  "apiProtocol": "http",
+  "apiHost": "api.ezdict.potapovmax.com",
+  "webAppProtocol": "http",
+  "webAppHost": "ezdict.potapovmax.com"
+}

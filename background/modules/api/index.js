@@ -1,6 +1,6 @@
 var api = require('ezdict-api-client');
 
-var config = require('../config');
+var config = require('../../../config');
 api.config.setHost(config.apiHost);
 api.config.setProtocol(config.apiProtocol);
 

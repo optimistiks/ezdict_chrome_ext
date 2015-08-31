@@ -1,4 +1,4 @@
 .idea
 bower_components/ezdict-tooltip-element/bower_components
 node_modules
-background/modules/config/local.json
+config/local.json

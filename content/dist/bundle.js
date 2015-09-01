@@ -182,9 +182,9 @@ var config = require('../../../config');
 var helper = {};
 
 helper.getCardUrl = function (slug) {
-    console.log('getting card url', config);
     return config.webAppProtocol + '://' + config.webAppHost + '#/card/' + slug;
 };
 
 module.exports = helper;
+
 },{"../../../config":2}]},{},[4]);

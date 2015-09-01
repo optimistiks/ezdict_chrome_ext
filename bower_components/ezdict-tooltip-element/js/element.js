@@ -144,7 +144,7 @@ ezdictTooltipElement.register = function () {
                             this.$shadowRoot.find('#sticker').hide();
                         }.bind(this));
 
-                        this.$shadowRoot.find('#create_card, #edit_card').on('click', function (e) {
+                        /*this.$shadowRoot.find('#create_card, #edit_card').on('click', function (e) {
                             var el = $(e.currentTarget);
 
                             var clickCount = el.data('clicked') || 0;
@@ -169,7 +169,7 @@ ezdictTooltipElement.register = function () {
                             el.data('clicked', 0);
                             el.find('.st-btn_dummy').show();
                             el.find('.st-btn_link').hide();
-                        }.bind(this));
+                        }.bind(this));*/
 
                         return this;
                     },

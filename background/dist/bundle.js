@@ -67,10 +67,10 @@ chrome.runtime.onMessageExternal.addListener(
     });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./modules/app":3,"./modules/sendMessageToActiveTab":8,"./modules/storage":9,"jquery":396}],2:[function(require,module,exports){
+},{"./modules/app":3,"./modules/sendMessageToActiveTab":5,"./modules/storage":6,"jquery":396}],2:[function(require,module,exports){
 var api = require('ezdict-api-client');
 
-var config = require('../config');
+var config = require('../../../config');
 api.config.setHost(config.apiHost);
 api.config.setProtocol(config.apiProtocol);
 
@@ -82,7 +82,7 @@ api.config.setLocale(locale);
 
 module.exports = api;
 
-},{"../config":5,"../locale":7,"../storage":9,"ezdict-api-client":252}],3:[function(require,module,exports){
+},{"../../../config":8,"../locale":4,"../storage":6,"ezdict-api-client":252}],3:[function(require,module,exports){
 //@todo: избавиться от Deferred
 
 var $ = require('jquery');
@@ -238,32 +238,10 @@ app.translate = function (word) {
 
 module.exports = app;
 
-},{"../api":2,"../sendMessageToActiveTab":8,"jquery":396}],4:[function(require,module,exports){
-module.exports={
-  "apiProtocol": "http",
-  "apiHost": "api.ezdict.potapovmax.com"
-}
-},{}],5:[function(require,module,exports){
-var common = require('./common.json');
-
-try {
-    var local = require('./local.json');
-    Object.keys(local).forEach(function (key) {
-        common[key] = local[key];
-    })
-} catch (e) {
-}
-
-module.exports = common;
-
-},{"./common.json":4,"./local.json":6}],6:[function(require,module,exports){
-module.exports={
-  "apiHost": "127.0.0.1:9000"
-}
-},{}],7:[function(require,module,exports){
+},{"../api":2,"../sendMessageToActiveTab":5,"jquery":396}],4:[function(require,module,exports){
 module.exports = chrome.i18n.getMessage('@@ui_locale').split('_')[0];
 
-},{}],8:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function (payload) {
   chrome.tabs.query({
     active: true,
@@ -273,7 +251,7 @@ module.exports = function (payload) {
   });
 };
 
-},{}],9:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 var $ = require('jquery');
 //todo: move to bluebird
 
@@ -313,7 +291,32 @@ var storage = {
 };
 module.exports = storage;
 
-},{"jquery":396}],10:[function(require,module,exports){
+},{"jquery":396}],7:[function(require,module,exports){
+module.exports={
+  "apiProtocol": "http",
+  "apiHost": "api.ezdict.potapovmax.com",
+  "webAppProtocol": "http",
+  "webAppHost": "ezdict.potapovmax.com"
+}
+},{}],8:[function(require,module,exports){
+var common = require('./common.json');
+
+try {
+    var local = require('./local.json');
+    Object.keys(local).forEach(function (key) {
+        common[key] = local[key];
+    })
+} catch (e) {
+}
+
+module.exports = common;
+
+},{"./common.json":7,"./local.json":9}],9:[function(require,module,exports){
+module.exports={
+  "apiHost": "127.0.0.1:9000",
+  "webAppHost": "localhost:63342/ezdict_webapp/www/index.html"
+}
+},{}],10:[function(require,module,exports){
 (function (process,global){
 /* @preserve
  * The MIT License (MIT)
@@ -39948,8 +39951,8 @@ module.exports={
   "apiLocale": "en"
 }
 },{}],251:[function(require,module,exports){
-arguments[4][5][0].apply(exports,arguments)
-},{"./common.json":250,"./local.json":undefined,"dup":5}],252:[function(require,module,exports){
+arguments[4][8][0].apply(exports,arguments)
+},{"./common.json":250,"./local.json":undefined,"dup":8}],252:[function(require,module,exports){
 var core = require('./modules/core');
 var card = require('./modules/card');
 var config = require('./modules/config');

@@ -1,3 +1,5 @@
+var webAppHelper = require('../webapp-helper');
+
 var tooltip = {
     rootElem: null
 };
@@ -51,10 +53,9 @@ tooltip.hideTooltip = function () {
 
 tooltip.setTranslation = function (translation) {
     this.ready(function () {
+        var slug = translation.card ? translation.card.id : translation.translation_history.string;
         this.rootElem.setStateTranslation(translation);
-        //todo: refactor the hardcode
-        var url = 'http://ezdict.potapovmax.com/#/card/';
-        this.rootElem.setCardUrl(url + (translation.card ? translation.card.id : translation.translation_history.string));
+        this.rootElem.setCardUrl(webAppHelper.getCardUrl(slug));
         this.rootElem.redraw();
         this.updateTooltipPosition();
     }.bind(this));

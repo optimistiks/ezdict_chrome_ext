@@ -58,49 +58,65 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
 },"18":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(19, data, 0),"inverse":this.program(29, data, 0),"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.card : depth0),{"name":"if","hash":{},"fn":this.program(19, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"19":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <div>\n                    <p>"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.article : stack1), depth0))
+    + "</p>\n                </div>\n                <ul>\n"
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.card_meanings : stack1),{"name":"each","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "                </ul>\n";
+},"20":function(depth0,helpers,partials,data) {
+    return "                        <li>"
+    + this.escapeExpression(this.lambda((depth0 != null ? depth0.text : depth0), depth0))
+    + "</li>\n";
+},"22":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(23, data, 0),"inverse":this.program(33, data, 0),"data":data})) != null ? stack1 : "");
+},"23":function(depth0,helpers,partials,data) {
     var stack1, alias1=helpers.helperMissing, alias2=this.escapeExpression;
 
   return "                <div>\n                    <ul>\n"
-    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(20, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.ya_dict : depth0)) != null ? stack1.def : stack1),{"name":"each","hash":{},"fn":this.program(24, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "                    </ul>\n                    <p>"
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictDisclaimer",{"name":"t","hash":{},"data":data}))
     + "\n                        <a href=\"http://api.yandex.ru/dictionary/\" target=\"_blank\">\""
     + alias2((helpers.t || (depth0 && depth0.t) || alias1).call(depth0,"yaDictBrand",{"name":"t","hash":{},"data":data}))
     + "\"</a>\n                    </p>\n                </div>\n";
-},"20":function(depth0,helpers,partials,data) {
+},"24":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "                            <li>\n                                <p>["
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.ts : depth0), depth0))
     + "]</p>\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.tr : depth0),{"name":"each","hash":{},"fn":this.program(21, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.tr : depth0),{"name":"each","hash":{},"fn":this.program(25, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "                            </li>\n";
-},"21":function(depth0,helpers,partials,data) {
+},"25":function(depth0,helpers,partials,data) {
     var stack1;
 
   return "                                    <p>"
     + this.escapeExpression(this.lambda((depth0 != null ? depth0.text : depth0), depth0))
     + "</p>\n                                    "
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.syn : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(22, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.syn : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(26, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n                                    <p>"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.syn : depth0),{"name":"each","hash":{},"fn":this.program(24, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.syn : depth0),{"name":"each","hash":{},"fn":this.program(28, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</p>\n                                    "
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.ex : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(22, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.ex : depth0)) != null ? stack1.length : stack1),{"name":"if","hash":{},"fn":this.program(26, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n                                    <ul>\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.ex : depth0),{"name":"each","hash":{},"fn":this.program(27, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.ex : depth0),{"name":"each","hash":{},"fn":this.program(31, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "                                    </ul>\n                                    <br>\n";
-},"22":function(depth0,helpers,partials,data) {
+},"26":function(depth0,helpers,partials,data) {
     return "<br>";
-},"24":function(depth0,helpers,partials,data) {
+},"28":function(depth0,helpers,partials,data) {
     var stack1;
 
   return this.escapeExpression(this.lambda((depth0 != null ? depth0.text : depth0), depth0))
-    + ((stack1 = helpers.unless.call(depth0,(data && data.last),{"name":"unless","hash":{},"fn":this.program(25, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
-},"25":function(depth0,helpers,partials,data) {
+    + ((stack1 = helpers.unless.call(depth0,(data && data.last),{"name":"unless","hash":{},"fn":this.program(29, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
+},"29":function(depth0,helpers,partials,data) {
     return ", ";
-},"27":function(depth0,helpers,partials,data) {
+},"31":function(depth0,helpers,partials,data) {
     var stack1, alias1=this.lambda, alias2=this.escapeExpression;
 
   return "                                            <li>"
@@ -108,7 +124,7 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
     + " - "
     + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.tr : depth0)) != null ? stack1['0'] : stack1)) != null ? stack1.text : stack1), depth0))
     + "</li>\n";
-},"29":function(depth0,helpers,partials,data) {
+},"33":function(depth0,helpers,partials,data) {
     var helper;
 
   return "                <p>"
@@ -138,12 +154,14 @@ templates['tooltip'] = template({"1":function(depth0,helpers,partials,data) {
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.translation : stack1),{"name":"if","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "    </div>\n    <div class=\"st-source-translate\" id=\"ezdict-sticker\">\n\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":this.program(16, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.translation : stack1),{"name":"if","hash":{},"fn":this.program(18, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.translation : stack1),{"name":"if","hash":{},"fn":this.program(22, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n    </div>\n    <div class=\"st-source-translate\" id=\"best-sticker\">\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":this.program(14, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"

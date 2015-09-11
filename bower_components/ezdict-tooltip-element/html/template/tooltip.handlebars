@@ -59,6 +59,19 @@
         {{#if state.error}}
             {{ error }}
         {{/if}}
+        {{#if state.translation}}
+            {{#if card}}
+                <div>
+                    <p>{{card.article}}</p>
+                </div>
+                <br>
+                <ul>
+                    {{#each card.card_meanings}}
+                        <li>{{ this.text }}</li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        {{/if}}
     </div>
     <div class="st-source-translate" id="ezdict-sticker">
 

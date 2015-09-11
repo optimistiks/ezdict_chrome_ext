@@ -11,16 +11,16 @@
     "jquery": "https://github.com/components/jquery.git#2.1.4",
     "jquery-slimscroll": "1.3.6",
     "i18next": "1.10.2",
-    "handlebars": "3.0.3"
+    "handlebars": "~4.0.0"
   },
   "devDependencies": {
     "web-component-tester": "*"
   },
-  "_release": "296b5001ac",
+  "_release": "10d16ade41",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "296b5001ace75abc785fddb2222385c89d032ca5"
+    "commit": "10d16ade41ba19b949bbf8719c558fae61f57422"
   },
   "_source": "git://github.com/optimistiks/ezdict_tooltip_element.git",
   "_target": "master",

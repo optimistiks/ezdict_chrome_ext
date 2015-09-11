@@ -1,13 +1,13 @@
 {
   "counterTitle": "Translation count",
-  "editTranslationTitle": "Edit card",
-  "addTranslationTitle": "Create card",
+  "editTranslationTitle": "Edit card (will open in a new tab)",
+  "addTranslationTitle": "Create card (will open in a new tab)",
   "addToLearningTitle": "Add to learning",
   "likeTitle": "LUV DAT",
   "closeTranslationTitle": "Close translation",
-  "yourTranslationTitle": "Your translation",
+  "yourTranslationTitle": "Your card",
   "ezdictTranslationTitle": "EzDict translation",
-  "bestUserTranslationTitle": "Best user translation",
+  "bestUserTranslationTitle": "Best user cards",
   "loading": "Loading...",
   "yaDictDisclaimer": "Powered by",
   "yaDictBrand": "Yandex.Dictionary"

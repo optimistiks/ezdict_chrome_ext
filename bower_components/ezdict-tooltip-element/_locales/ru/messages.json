@@ -1,13 +1,13 @@
 {
   "counterTitle": "Счетчик просмотров",
-  "editTranslationTitle": "Редактировать карточку",
-  "addTranslationTitle": "Создать карточку",
+  "editTranslationTitle": "Редактировать карточку (откроется в новой вкладке)",
+  "addTranslationTitle": "Создать карточку (откроется в новой вкладке)",
   "addToLearningTitle": "Добавить в изучаемые",
   "likeTitle": "МЕНЕ НАРАИЦА",
   "closeTranslationTitle": "Закрыть перевод",
-  "yourTranslationTitle": "Ваш перевод",
+  "yourTranslationTitle": "Ваша карточка",
   "ezdictTranslationTitle": "Перевод EzDict",
-  "bestUserTranslationTitle": "Лучший пользовательский перевод",
+  "bestUserTranslationTitle": "Лучшие пользовательские карточки",
   "loading": "Загрузка...",
   "yaDictDisclaimer": "Реализовано с помощью сервиса",
   "yaDictBrand": "Яндекс.Словарь"

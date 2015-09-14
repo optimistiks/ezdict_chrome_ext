@@ -21,9 +21,11 @@
                     </a>
                 </div>
             </div>
+            {{#unless card.to_study}}
             <div id="add_to_learning" class="st-btn-wrap vrashi" title="{{ t 'addToLearningTitle' }}">
                 <div class="st-btn add-to-learning">Aa</div>
             </div>
+            {{/unless}}
         {{else}}
             <div id="create_card" class="st-btn-wrap" title="{{ t 'addTranslationTitle' }}">
                 <div class="st-btn add-new st-btn_dummy"><i class="icon-createfile"></i></div>

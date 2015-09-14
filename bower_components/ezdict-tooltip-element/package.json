@@ -1,0 +1,21 @@
+{
+  "name": "ezdict-tooltip-element",
+  "version": "0.4.1",
+  "description": "",
+  "scripts": {
+    "handlebars": "handlebars html/template/*.handlebars -f html/template/compiled.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/optimistiks/ezdict_tooltip_element.git"
+  },
+  "author": "optimistiks",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/optimistiks/ezdict_tooltip_element/issues"
+  },
+  "devDependencies": {
+    "handlebars": "^4.0.2"
+  }
+}

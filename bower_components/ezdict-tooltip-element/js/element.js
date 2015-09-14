@@ -171,6 +171,12 @@ ezdictTooltipElement.register = function () {
                             el.find('.st-btn_link').hide();
                         }.bind(this));*/
 
+                        this.$shadowRoot.find('#add_to_learning').on('click', function() {
+                            this.viewData.card.to_study = {};
+                            this.redraw();
+                            xtag.fireEvent(this, this._getEventName('add-to-learning'));
+                        }.bind(this));
+
                         return this;
                     },
 
@@ -213,7 +219,7 @@ ezdictTooltipElement.register = function () {
                             throw new Error('State is not set');
                         }
 
-                        // ease the state check in handlebars templates
+                        // makes the state check in the handlebars templates easier
                         this.viewData.state = {};
                         this.viewData.state[this.state] = true;
 

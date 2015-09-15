@@ -5,6 +5,10 @@ var tooltip = {
 };
 
 tooltip.createTooltip = function () {
+    if (this.rootElem) {
+        throw new Error('Can\'t create tooltip, it\'s already created.', this.rootElem);
+    }
+
     var deferred = new $.Deferred();
     //todo: get locale from module (/modules)
     var locale = chrome.i18n.getMessage('@@ui_locale');

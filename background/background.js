@@ -25,6 +25,9 @@ chrome.runtime.onMessage.addListener(
         if (request.text) {
             translate(request.text);
         }
+        if (request.addToLearning) {
+            app.addToLearning(request.addToLearning)
+        }
         if (request.getOption) {
             app.getOption(request.getOption).done(function (option) {
                 sendMessageToActiveTab({

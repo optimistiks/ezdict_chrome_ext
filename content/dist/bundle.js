@@ -24,11 +24,21 @@ module.exports={
   "webAppHost": "localhost:63342/ezdict_webapp/www/index.html"
 }
 },{}],4:[function(require,module,exports){
+(function (global){
 var tooltip = require('./modules/tooltip');
 
 var app = {
-  currentText: null,
-  isOff: true
+    currentText: null,
+    translation: null,
+    isOff: true
+};
+
+app.setTranslation = function (translation) {
+    this.translation = translation;
+};
+
+app.getTranslation = function () {
+    return this.translation;
 };
 
 /**
@@ -36,18 +46,22 @@ var app = {
  * binds handler to mouseup which runs a translation process
  */
 app.init = function () {
-  chrome.runtime.sendMessage({getOption: 'is_off'});
+    chrome.runtime.sendMessage({getOption: 'is_off'});
 
-  $(document).on('mouseup', function (e) {
-    if ($(e.target).closest(tooltip.rootElem).length > 0) {
-      return false;
-    }
-    if (this.isOff) {
-      tooltip.hideTooltip();
-      return false;
-    }
-    this.translate();
-  }.bind(this));
+    $(document).on('mouseup', function (e) {
+        if ($(e.target).closest(tooltip.rootElem).length > 0) {
+            return false;
+        }
+        if (this.isOff) {
+            tooltip.hideTooltip();
+            return false;
+        }
+        this.translate();
+    }.bind(this));
+
+    global.xtag.addEvent(window, 'ezdict-tooltip-element_add-to-learning', function () {
+        chrome.runtime.sendMessage({addToLearning: this.getTranslation().card});
+    }.bind(this));
 };
 
 /**
@@ -55,17 +69,17 @@ app.init = function () {
  * send to background page, show or hide tooltip
  */
 app.translate = function () {
-  var selection = window.getSelection();
-  var text = selection.toString().replace(/^\s+|\s+$/g, '');
-  if (text && text.length > 1) {
-    this.currentText = text;
-    console.log(text);
-    chrome.runtime.sendMessage({text: text});
-    tooltip.showTooltip();
-  } else {
-    this.currentText = null;
-    tooltip.hideTooltip();
-  }
+    var selection = window.getSelection();
+    var text = selection.toString().replace(/^\s+|\s+$/g, '');
+    if (text && text.length > 1) {
+        this.currentText = text;
+        console.log(text);
+        chrome.runtime.sendMessage({text: text});
+        tooltip.showTooltip();
+    } else {
+        this.currentText = null;
+        tooltip.hideTooltip();
+    }
 };
 
 app.init();
@@ -76,21 +90,23 @@ app.init();
  * @todo: smth like message.on(type, handler);
  */
 chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
-    if (request.translation) {
-      tooltip.setTranslation(request.translation);
-    }
-    if (request.translationError) {
-      tooltip.setError(request.translationError.join(','));
-    }
-    if (request.loginRequired) {
-      tooltip.setError(chrome.i18n.getMessage('loginError'));
-    }
-    if (request.option && request.name === 'is_off') {
-      app.isOff = request.value;
-    }
-  });
+    function (request, sender, sendResponse) {
+        if (request.translation) {
+            app.setTranslation(request.translation);
+            tooltip.setTranslation(request.translation);
+        }
+        if (request.translationError) {
+            tooltip.setError(request.translationError.join(','));
+        }
+        if (request.loginRequired) {
+            tooltip.setError(chrome.i18n.getMessage('loginError'));
+        }
+        if (request.option && request.name === 'is_off') {
+            app.isOff = request.value;
+        }
+    });
 
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./modules/tooltip":5}],5:[function(require,module,exports){
 (function (global){
 var webAppHelper = require('../webapp-helper');
@@ -100,6 +116,10 @@ var tooltip = {
 };
 
 tooltip.createTooltip = function () {
+    if (this.rootElem) {
+        throw new Error('Can\'t create tooltip, it\'s already created.', this.rootElem);
+    }
+
     var deferred = new $.Deferred();
     //todo: get locale from module (/modules)
     var locale = chrome.i18n.getMessage('@@ui_locale');

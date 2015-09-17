@@ -17,7 +17,7 @@ templates['login'] = template({"1":function(container,depth0,helpers,partials,da
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.username : stack1), depth0))
     + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-    + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"password\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.password : stack1), depth0))
@@ -97,7 +97,7 @@ templates['registration'] = template({"1":function(container,depth0,helpers,part
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.email : stack1), depth0))
     + "\">\n            </div>\n            <div class=\"form-group\">\n                <label for=\"password_input\">"
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
-    + "</label>\n                <input required=\"required\" type=\"password\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
+    + "</label>\n                <input required=\"required\" type=\"text\" class=\"form-control\" id=\"password_input\"\n                       placeholder=\""
     + alias2((helpers.chrome_t || (depth0 && depth0.chrome_t) || alias1).call(depth0,"passwordPlaceholder",{"name":"chrome_t","hash":{},"data":data}))
     + "\" name=\"password\" value=\""
     + alias2(alias3(((stack1 = (depth0 != null ? depth0.form : depth0)) != null ? stack1.password : stack1), depth0))

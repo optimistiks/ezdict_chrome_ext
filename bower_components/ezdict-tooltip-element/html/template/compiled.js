@@ -68,7 +68,7 @@ templates['tooltip'] = template({"1":function(container,depth0,helpers,partials,
   return "                <div>\n                    <p>"
     + container.escapeExpression(container.lambda(((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.article : stack1), depth0))
     + "</p>\n                </div>\n                <br>\n                <ul>\n"
-    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.card_meanings : stack1),{"name":"each","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.card : depth0)) != null ? stack1.meanings : stack1),{"name":"each","hash":{},"fn":container.program(21, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "                </ul>\n";
 },"21":function(container,depth0,helpers,partials,data) {
     return "                        <li>"

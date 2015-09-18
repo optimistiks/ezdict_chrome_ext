@@ -1,6 +1,6 @@
 {
   "name": "ezdict_chrome_ext",
-  "version": "0.0.0",
+  "version": "0.4.4",
   "homepage": "https://github.com/optimistiks/ezdict_chrome_ext",
   "authors": [
     "Potapov Max"
@@ -17,7 +17,7 @@
     "jquery": "https://github.com/components/jquery.git#2.1.4",
     "jquery-slimscroll": "1.3.6",
     "handlebars": "~4.0.0",
-    "ezdict-tooltip-element": "optimistiks/ezdict_tooltip_element#master",
+    "ezdict-tooltip-element": "optimistiks/ezdict_tooltip_element#0.4.2",
     "bootstrap-css": "~3.3.4"
   }
 }

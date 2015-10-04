@@ -1,6 +1,6 @@
 {
   "apiProtocol": "http",
-  "apiHost": "api.ezdict.potapovmax.com",
+  "apiHost": "api.wordix.io",
   "webAppProtocol": "http",
-  "webAppHost": "ezdict.potapovmax.com"
+  "webAppHost": "wordix.io"
 }

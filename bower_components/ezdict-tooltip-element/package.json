@@ -1,6 +1,6 @@
 {
   "name": "ezdict-tooltip-element",
-  "version": "0.0.0",
+  "version": "0.4.3",
   "description": "",
   "scripts": {
     "handlebars": "handlebars html/template/*.handlebars -f html/template/compiled.js",

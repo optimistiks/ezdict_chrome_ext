@@ -1,9 +1,9 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports={
   "apiProtocol": "http",
-  "apiHost": "api.ezdict.potapovmax.com",
+  "apiHost": "api.wordix.io",
   "webAppProtocol": "http",
-  "webAppHost": "ezdict.potapovmax.com"
+  "webAppHost": "wordix.io"
 }
 },{}],2:[function(require,module,exports){
 var common = require('./common.json');
@@ -18,12 +18,7 @@ try {
 
 module.exports = common;
 
-},{"./common.json":1,"./local.json":3}],3:[function(require,module,exports){
-module.exports={
-  "apiHost": "127.0.0.1:9000",
-  "webAppHost": "localhost:63342/ezdict_webapp/www/index.html"
-}
-},{}],4:[function(require,module,exports){
+},{"./common.json":1,"./local.json":undefined}],3:[function(require,module,exports){
 (function (global){
 var tooltip = require('./modules/tooltip');
 
@@ -107,7 +102,7 @@ chrome.runtime.onMessage.addListener(
     });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./modules/tooltip":5}],5:[function(require,module,exports){
+},{"./modules/tooltip":4}],4:[function(require,module,exports){
 (function (global){
 var webAppHelper = require('../webapp-helper');
 
@@ -196,7 +191,7 @@ tooltip.updateTooltipPosition = function () {
 
 module.exports = tooltip;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../webapp-helper":6}],6:[function(require,module,exports){
+},{"../webapp-helper":5}],5:[function(require,module,exports){
 var config = require('../../../config');
 
 var helper = {};
@@ -207,4 +202,4 @@ helper.getCardUrl = function (slug) {
 
 module.exports = helper;
 
-},{"../../../config":2}]},{},[4]);
+},{"../../../config":2}]},{},[3]);

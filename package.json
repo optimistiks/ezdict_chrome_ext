@@ -1,6 +1,6 @@
 {
   "name": "ezdict-chrome-ext",
-  "version": "0.0.0",
+  "version": "0.4.6",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "bluebird": "^2.9.34",
-    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client#master",
+    "ezdict-api-client": "git://github.com/optimistiks/ezdict_api_client#0.4.0",
     "jquery": "^2.1.4"
   },
   "devDependencies": {

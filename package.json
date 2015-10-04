@@ -1,6 +1,6 @@
 {
   "name": "ezdict-chrome-ext",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/optimistiks/ezdict_chrome_ext.git"
   },
-  "author": "optimistiks",
+  "author": "wordix.io",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/optimistiks/ezdict_chrome_ext/issues"

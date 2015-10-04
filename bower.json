@@ -1,9 +1,9 @@
 {
   "name": "ezdict_chrome_ext",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "homepage": "https://github.com/optimistiks/ezdict_chrome_ext",
   "authors": [
-    "Potapov Max"
+    "wordix.io"
   ],
   "private": true,
   "ignore": [

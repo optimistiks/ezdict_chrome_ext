@@ -107,14 +107,15 @@ app.updateProfile = function (params) {
 };
 
 app.getLanguages = function () {
+
     var def = $.Deferred();
 
-    chrome.storage.sync.get('langs', function (items) {
-        if (items.langs) {
-            def.resolve(items.langs);
+    chrome.storage.sync.get('bing_langs', function (items) {
+        if (items.bing_langs) {
+            def.resolve(items.bing_langs);
         } else {
             api.getLanguages().then(function (langs) {
-                chrome.storage.sync.set({langs: langs}, function () {
+                chrome.storage.sync.set({bing_langs: langs}, function () {
                     def.resolve(langs);
                 });
             }).catch(function () {
@@ -124,6 +125,7 @@ app.getLanguages = function () {
     });
 
     return def.promise();
+
 };
 
 app.processFormData = function (formData) {

@@ -164,10 +164,6 @@ templates['tooltip'] = template({"1":function(container,depth0,helpers,partials,
     + ((stack1 = helpers["if"].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers["if"].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.translation : stack1),{"name":"if","hash":{},"fn":container.program(23, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n    </div>\n    <div class=\"st-source-translate\" id=\"best-sticker\">\n"
-    + ((stack1 = helpers["if"].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.loading : stack1),{"name":"if","hash":{},"fn":container.program(15, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers["if"].call(depth0,((stack1 = (depth0 != null ? depth0.state : depth0)) != null ? stack1.error : stack1),{"name":"if","hash":{},"fn":container.program(17, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n</div>\n";
+    + "\n    </div>\n    <!--<div class=\"st-source-translate\" id=\"best-sticker\"></div>-->\n</div>\n";
 },"useData":true});
 })();

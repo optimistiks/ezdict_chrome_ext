@@ -46,7 +46,6 @@ app.translate = function () {
     var text = selection.toString().replace(/^\s+|\s+$/g, '');
     if (text && text.length > 1) {
         this.currentText = text;
-        console.log(text);
         chrome.runtime.sendMessage({text: text});
         tooltip.showTooltip();
     } else {

@@ -70,7 +70,7 @@ chrome.runtime.onMessageExternal.addListener(
     });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./modules/app":3,"./modules/sendMessageToActiveTab":5,"./modules/storage":6,"jquery":27}],2:[function(require,module,exports){
+},{"./modules/app":3,"./modules/sendMessageToActiveTab":5,"./modules/storage":6,"jquery":26}],2:[function(require,module,exports){
 var api = require('ezdict-api-client');
 
 var config = require('../../../config');
@@ -85,7 +85,7 @@ api.config.setLocale(locale);
 
 module.exports = api;
 
-},{"../../../config":8,"../locale":4,"../storage":6,"ezdict-api-client":14}],3:[function(require,module,exports){
+},{"../../../config":8,"../locale":4,"../storage":6,"ezdict-api-client":13}],3:[function(require,module,exports){
 //@todo: избавиться от Deferred
 
 var $ = require('jquery');
@@ -213,7 +213,7 @@ app.getLanguages = function () {
     });
 
     return def.promise();
-    
+
 };
 
 app.processFormData = function (formData) {
@@ -247,7 +247,7 @@ app.addToLearning = function (card) {
 
 module.exports = app;
 
-},{"../api":2,"../sendMessageToActiveTab":5,"jquery":27}],4:[function(require,module,exports){
+},{"../api":2,"../sendMessageToActiveTab":5,"jquery":26}],4:[function(require,module,exports){
 module.exports = chrome.i18n.getMessage('@@ui_locale').split('_')[0];
 
 },{}],5:[function(require,module,exports){
@@ -300,7 +300,7 @@ var storage = {
 };
 module.exports = storage;
 
-},{"jquery":27}],7:[function(require,module,exports){
+},{"jquery":26}],7:[function(require,module,exports){
 module.exports={
   "apiProtocol": "http",
   "apiHost": "api.wordix.io",
@@ -320,13 +320,7 @@ try {
 
 module.exports = common;
 
-},{"./common.json":7,"./local.json":9}],9:[function(require,module,exports){
-module.exports={
-  "apiHost": "127.0.0.1:9000",
-  "webAppHost": "localhost:63342/ezdict_webapp/www/index.html"
-}
-
-},{}],10:[function(require,module,exports){
+},{"./common.json":7,"./local.json":undefined}],9:[function(require,module,exports){
 (function (process,global){
 /* @preserve
  * The MIT License (MIT)
@@ -5216,7 +5210,7 @@ module.exports = ret;
 },{"./es5.js":14}]},{},[4])(4)
 });                    ;if (typeof window !== 'undefined' && window !== null) {                               window.P = window.Promise;                                                     } else if (typeof self !== 'undefined' && self !== null) {                             self.P = self.Promise;                                                         }
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"_process":11}],11:[function(require,module,exports){
+},{"_process":10}],10:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -5309,15 +5303,15 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],12:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 module.exports={
   "apiProtocol": "http",
   "apiHost": "api.ezdict.potapovmax.com",
   "apiLocale": "en"
 }
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 arguments[4][8][0].apply(exports,arguments)
-},{"./common.json":12,"./local.json":undefined,"dup":8}],14:[function(require,module,exports){
+},{"./common.json":11,"./local.json":undefined,"dup":8}],13:[function(require,module,exports){
 var core = require('./modules/core');
 var card = require('./modules/card');
 var quizzes = require('./modules/quizzes');
@@ -5452,7 +5446,7 @@ api.updateProfile = function (params) {
 
 module.exports = api;
 
-},{"./modules/card":15,"./modules/config":16,"./modules/core":17,"./modules/meaning":18,"./modules/quiz-answers":19,"./modules/quizzes":20,"./modules/suggested-meaning":21,"./modules/to-study":22}],15:[function(require,module,exports){
+},{"./modules/card":14,"./modules/config":15,"./modules/core":16,"./modules/meaning":17,"./modules/quiz-answers":18,"./modules/quizzes":19,"./modules/suggested-meaning":20,"./modules/to-study":21}],14:[function(require,module,exports){
 var core = require('../core');
 
 var card = {};
@@ -5508,7 +5502,7 @@ card.get = function (id, data) {
 
 module.exports = card;
 
-},{"../core":17}],16:[function(require,module,exports){
+},{"../core":16}],15:[function(require,module,exports){
 var params = require('../../config');
 
 var config = {
@@ -5559,7 +5553,7 @@ config.getLocale = function () {
 
 module.exports = config;
 
-},{"../../config":13}],17:[function(require,module,exports){
+},{"../../config":12}],16:[function(require,module,exports){
 var Promise = require('bluebird');
 var agent = require('superagent-promise')(require('superagent'), Promise);
 var config = require('../config');
@@ -5651,7 +5645,7 @@ core.sendSignedRequest = function (requestOptions) {
 
 module.exports = core;
 
-},{"../config":16,"bluebird":10,"superagent":24,"superagent-promise":23}],18:[function(require,module,exports){
+},{"../config":15,"bluebird":9,"superagent":23,"superagent-promise":22}],17:[function(require,module,exports){
 var core = require('../core');
 
 var meaning = {};
@@ -5738,7 +5732,7 @@ meaning.get = function (id, data) {
 
 module.exports = meaning;
 
-},{"../core":17}],19:[function(require,module,exports){
+},{"../core":16}],18:[function(require,module,exports){
 var core = require('../core');
 
 var quizAnswers = {};
@@ -5779,7 +5773,7 @@ quizAnswers.get = function (id, data) {
 
 module.exports = quizAnswers;
 
-},{"../core":17}],20:[function(require,module,exports){
+},{"../core":16}],19:[function(require,module,exports){
 var core = require('../core');
 
 var quizzes = {};
@@ -5820,7 +5814,7 @@ quizzes.get = function (id, data) {
 
 module.exports = quizzes;
 
-},{"../core":17}],21:[function(require,module,exports){
+},{"../core":16}],20:[function(require,module,exports){
 var core = require('../core');
 
 var suggestedMeaning = {};
@@ -5842,7 +5836,7 @@ suggestedMeaning.get = function (text, lang) {
 
 module.exports = suggestedMeaning;
 
-},{"../core":17}],22:[function(require,module,exports){
+},{"../core":16}],21:[function(require,module,exports){
 var core = require('../core');
 
 var toStudy = {};
@@ -5890,7 +5884,7 @@ toStudy.get = function (id, data) {
 
 module.exports = toStudy;
 
-},{"../core":17}],23:[function(require,module,exports){
+},{"../core":16}],22:[function(require,module,exports){
 /**
  * Promise wrapper for superagent
  */
@@ -6012,7 +6006,7 @@ function wrap(superagent, Promise) {
 
 module.exports = wrap;
 
-},{}],24:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -7171,7 +7165,7 @@ request.put = function(url, data, fn){
 
 module.exports = request;
 
-},{"emitter":25,"reduce":26}],25:[function(require,module,exports){
+},{"emitter":24,"reduce":25}],24:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -7337,7 +7331,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],26:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 
 /**
  * Reduce `arr` with `fn`.
@@ -7362,7 +7356,7 @@ module.exports = function(arr, fn, initial){
   
   return curr;
 };
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.4
  * http://jquery.com/
